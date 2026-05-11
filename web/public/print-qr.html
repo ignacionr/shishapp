@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidita Cafe - QR Print Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        :root {
+            --coffee: #4B2C20;
+            --coffee-light: #6F4E37;
+            --card-width: 100mm;
+            --card-height: 70mm;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            max-width: 700px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        input {
+            padding: 10px 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: var(--coffee);
+        }
+
+        .btn-group {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        button {
+            background: var(--coffee);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .pages-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            height: 297mm;
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            position: relative;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(2, var(--card-width));
+            grid-template-rows: repeat(4, var(--card-height));
+            justify-content: center;
+            align-content: center;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .card {
+            width: var(--card-width);
+            height: var(--card-height);
+            border: 0.1mm solid #f5f5f5; /* Very faint guide */
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 5mm 10mm;
+            text-align: left;
+            background-color: white;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 66mm;
+            background-image: url('static/qr-background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .qr-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 2;
+            margin-top: 2mm; /* Adjusted to fit with 4mm bottom space */
+        }
+
+        .card-title {
+            color: white;
+            font-weight: 900;
+            font-size: 18pt;
+            margin-bottom: 4mm; /* Adjusted to fit */
+            letter-spacing: -0.5px;
+        }
+
+        .qr-container {
+            width: 35mm;
+            height: 35mm;
+            background: white;
+            padding: 1.5mm;
+            border-radius: 2mm;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .code-display {
+            font-weight: 900;
+            font-size: 14pt;
+            color: #000;
+            margin-top: 1mm;
+            letter-spacing: 0.5px;
+        }
+
+        .url {
+            font-weight: 700;
+            color: #000;
+            font-size: 7pt;
+            opacity: 0.7;
+        }
+
+        /* Cutting Tick Marks */
+        .tick-h { position: absolute; height: 0.2mm; width: 4mm; background: #000; z-index: 10; }
+        .tick-v { position: absolute; width: 0.2mm; height: 4mm; background: #000; z-index: 10; }
+
+        @media print {
+            html, body { margin: 0; padding: 0; display: block; background: white; }
+            .controls { display: none; }
+            .pages-container { display: block; gap: 0; }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                height: 296.5mm; /* Slightly less than 297mm to avoid spill */
+                page-break-after: always;
+                break-after: page;
+                overflow: hidden;
+                align-content: start;
+                padding-top: 8mm; /* Push down to ensure top ticks are visible */
+            }
+            .card { border: none; }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <div class="input-group">
+            <label>Prefix</label>
+            <input type="text" id="prefixInput" placeholder="e.g. SP" value="SP">
+        </div>
+        <div class="input-group">
+            <label>From</label>
+            <input type="number" id="fromInput" value="101">
+        </div>
+        <div class="input-group">
+            <label>To</label>
+            <input type="number" id="toInput" value="120">
+        </div>
+        <div class="btn-group">
+            <button onclick="generate()">Generate</button>
+            <button onclick="window.print()" style="background: #333;">Print</button>
+        </div>
+    </div>
+
+    <div class="pages-container" id="pages">
+        <!-- Pages with cards will be generated here -->
+    </div>
+
+    <script>
+        function generate() {
+            const prefix = document.getElementById('prefixInput').value.trim();
+            const from = parseInt(document.getElementById('fromInput').value);
+            const to = parseInt(document.getElementById('toInput').value);
+            const container = document.getElementById('pages');
+            container.innerHTML = '';
+
+            if (isNaN(from) || isNaN(to) || from > to) {
+                alert('Please enter a valid range');
+                return;
+            }
+
+            let cardsCount = 0;
+            let currentPage = null;
+
+            for (let i = from; i <= to; i++) {
+                if (cardsCount % 8 === 0) {
+                    currentPage = document.createElement('div');
+                    currentPage.className = 'page';
+                    container.appendChild(currentPage);
+                }
+
+                const code = `${prefix}${i}`;
+                const url = `https://viditacafe.com/dl/${code}`;
+                const cardIndex = cardsCount % 8;
+                
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                // Add tick marks at logical boundaries
+                const row = Math.floor(cardIndex / 2);
+                const col = cardIndex % 2;
+
+                // Vertical ticks (for columns)
+                if (row === 0) {
+                    addTick(card, 'v', 'top', 0, col === 0 ? '0' : 'auto', col === 1 ? '0' : 'auto');
+                }
+                if (row === 3) {
+                    addTick(card, 'v', 'bottom', 0, col === 0 ? '0' : 'auto', col === 1 ? '0' : 'auto');
+                }
+                // Horizontal ticks (for rows)
+                // Left edge (only for first column)
+                if (col === 0) {
+                    const th = document.createElement('div');
+                    th.className = 'tick-h';
+                    th.style.left = '-2mm';
+                    th.style.top = '0';
+                    card.appendChild(th);
+                    
+                    if (row === 3) {
+                        const thb = document.createElement('div');
+                        thb.className = 'tick-h';
+                        thb.style.left = '-2mm';
+                        thb.style.bottom = '0';
+                        card.appendChild(thb);
+                    }
+                }
+
+                // Middle and Right edge (only for second column)
+                if (col === 1) {
+                    // Left horizontal tick (MIDDLE of page)
+                    const thl = document.createElement('div');
+                    thl.className = 'tick-h';
+                    thl.style.left = '-2mm';
+                    thl.style.top = '0';
+                    card.appendChild(thl);
+
+                    // Right horizontal tick (RIGHT side of page)
+                    const thr = document.createElement('div');
+                    thr.className = 'tick-h';
+                    thr.style.right = '-2mm';
+                    thr.style.top = '0';
+                    card.appendChild(thr);
+
+                    if (row === 3) {
+                         const thbl = document.createElement('div');
+                         thbl.className = 'tick-h';
+                         thbl.style.left = '-2mm';
+                         thbl.style.bottom = '0';
+                         card.appendChild(thbl);
+
+                         const thbr = document.createElement('div');
+                         thbr.className = 'tick-h';
+                         thbr.style.right = '-2mm';
+                         thbr.style.bottom = '0';
+                         card.appendChild(thbr);
+                    }
+                }
+                
+                // Center vertical line ticks (only at top and bottom of page)
+                if (col === 0) {
+                    if (row === 0) {
+                        const tv = document.createElement('div');
+                        tv.className = 'tick-v';
+                        tv.style.right = '0';
+                        tv.style.top = '-2mm';
+                        card.appendChild(tv);
+                    }
+                    if (row === 3) {
+                        const tvb = document.createElement('div');
+                        tvb.className = 'tick-v';
+                        tvb.style.right = '0';
+                        tvb.style.bottom = '-2mm';
+                        card.appendChild(tvb);
+                    }
+                }
+
+                card.innerHTML += `
+                    <div class="qr-side">
+                        <div class="card-title">How was your coffee?</div>
+                        <div class="qr-container" id="qr-${cardsCount}"></div>
+                        <div class="code-display">${code}</div>
+                        <div class="url">viditacafe.com/dl/${code}</div>
+                    </div>
+                `;
+                
+                currentPage.appendChild(card);
+
+                new QRCode(document.getElementById(`qr-${cardsCount}`), {
+                    text: url,
+                    width: 128, 
+                    height: 128,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+
+                cardsCount++;
+            }
+        }
+
+        function addTick(parent, type, side, offset, left, right) {
+            const tick = document.createElement('div');
+            tick.className = `tick-${type}`;
+            tick.style[side] = '-2mm';
+            if (left !== 'auto') tick.style.left = left;
+            if (right !== 'auto') tick.style.right = right;
+            
+            // Prevent flex centering for absolute elements
+            if (type === 'v') {
+                if (side === 'top' || side === 'bottom') {
+                    // already set by side
+                } else {
+                    tick.style.top = '0';
+                }
+            } else {
+                if (side === 'left' || side === 'right') {
+                    // already set by side
+                } else {
+                    tick.style.left = '0';
+                }
+                // Always set a vertical position for horizontal ticks
+                if (!tick.style.top && !tick.style.bottom) {
+                    tick.style.top = '0';
+                }
+            }
+            
+            parent.appendChild(tick);
+        }
+
+        generate();
+    </script>
+</body>
+</html>

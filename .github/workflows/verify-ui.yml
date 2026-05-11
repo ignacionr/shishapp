@@ -1,0 +1,166 @@
+name: Verify UI (Diagnostic)
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  verify-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('web/package-lock.json') }}
+
+      - name: Install Playwright and Lighthouse
+        run: |
+          npm install --legacy-peer-deps playwright @lhci/cli@0.14.x
+          if [ "${{ steps.playwright-cache.outputs.cache-hit }}" != "true" ]; then
+            npx playwright install chromium --with-deps
+          else
+            npx playwright install-deps chromium
+          fi
+
+      - name: Run Lighthouse Audit
+        run: |
+          mkdir -p lighthouse-reports
+          cat <<'EOF' > lhci-config.js
+          module.exports = {
+            ci: {
+              collect: {
+                url: [
+                  'https://viditacafe.com/',
+                  'https://viditacafe.com/journey',
+                  'https://viditacafe.com/brewing',
+                  'https://viditacafe.com/equipment',
+                  'https://viditacafe.com/search'
+                ],
+                numberOfRuns: 1,
+                settings: {
+                  chromeFlags: '--no-sandbox --headless --disable-gpu --disable-dev-shm-usage',
+                  onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo', 'pwa'],
+                },
+              },
+              upload: {
+                target: 'filesystem',
+                outputDir: './lighthouse-reports',
+              },
+            },
+          };
+          EOF
+          npx lhci collect --config=./lhci-config.js --print-summary
+          npx lhci upload --config=./lhci-config.js
+
+      - name: Capture Screenshots
+        run: |
+          cat <<'EOF' > capture.js
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+            
+            const screens = [
+              { name: 'home', path: '/' },
+              { name: 'journey', path: '/journey' },
+              { name: 'brewing', path: '/brewing' },
+              { name: 'equipment', path: '/equipment' },
+              { name: 'search', path: '/search' }
+            ];
+
+            const viewports = [
+              { name: 'desktop', width: 1280, height: 800 },
+              { name: 'iphone-se', width: 375, height: 667 },
+              { name: 'iphone-pro', width: 375, height: 812 }
+            ];
+
+            for (const viewport of viewports) {
+              await page.setViewportSize({ width: viewport.width, height: viewport.height });
+              
+              for (const screen of screens) {
+                const url = `https://viditacafe.com${screen.path}`;
+                console.log(`Capturing ${screen.name} [${viewport.name}] at ${url}...`);
+                
+                try {
+                  await page.setExtraHTTPHeaders({ 'X-Vidita-Language': 'en' });
+                  await page.goto(url, { waitUntil: 'networkidle' });
+                  
+                  // Wait for hydration
+                  try {
+                    await page.waitForSelector('nav a', { timeout: 5000 });
+                  } catch (e) {}
+                  await page.waitForTimeout(1000); 
+
+                  // Take initial screenshot
+                  await page.screenshot({ path: `${screen.name}-${viewport.name}-top.png` });
+
+                  // For the home page on iPhone SE, we simulate user scrolling to verify snapping
+                  if (screen.name === 'home' && viewport.name === 'iphone-se') {
+                    console.log('  Simulating interaction on iPhone SE home feed...');
+                    
+                    // Scroll down by 50% of the viewport to see if it snaps or stops mid-way
+                    await page.mouse.wheel(0, viewport.height / 2);
+                    await page.waitForTimeout(1500); // Wait for snap animation
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-mid-scroll.png` });
+
+                    // Scroll to the next full card (2nd)
+                    await page.mouse.wheel(0, viewport.height);
+                    await page.waitForTimeout(1500); 
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-card-2.png` });
+
+                    // Scroll to the 3rd card
+                    await page.mouse.wheel(0, viewport.height);
+                    await page.waitForTimeout(1500); 
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-card-3.png` });
+
+                    // Scroll to the 4th card
+                    await page.mouse.wheel(0, viewport.height);
+                    await page.waitForTimeout(1500); 
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-card-4.png` });
+
+                    // Scroll to the 5th card (likely a suggestion)
+                    await page.mouse.wheel(0, viewport.height);
+                    await page.waitForTimeout(1500); 
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-card-5.png` });
+
+                    // Scroll to the 6th card
+                    await page.mouse.wheel(0, viewport.height);
+                    await page.waitForTimeout(1500); 
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-card-6.png` });
+
+                    // Verify if we have overlaps by taking a full page screenshot
+                    await page.screenshot({ path: `${screen.name}-${viewport.name}-full.png`, fullPage: true });
+                  }
+                } catch (e) {
+                  console.error(`Failed to capture ${screen.name}: ${e.message}`);
+                }
+              }
+            }
+            
+            await browser.close();
+          })();
+          EOF
+          node capture.js
+
+      - name: Upload Verification Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: deployment-verification
+          path: |
+            *.png
+            lighthouse-reports
+          retention-days: 7

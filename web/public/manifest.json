@@ -1,0 +1,22 @@
+{
+  "name": "Vidita Cafe",
+  "short_name": "Vidita",
+  "description": "Augmenting your coffee journey",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#4B2C20",
+  "theme_color": "#4B2C20",
+  "icons": [
+    {
+      "src": "/static/images/v60.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/images/v60.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

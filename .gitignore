@@ -1,0 +1,52 @@
+# Build artifacts
+bin/
+build/
+out/
+deploy/
+web/out/
+web/.next/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+*.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# Dependencies
+node_modules/
+.gradle/
+.build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Nix
+result
+result-*
+
+*verification*
+snapshots
+
+web/.next/
+lighthouse-analysis/
+tmp/
+web/playwright-report/
+web/test-results/

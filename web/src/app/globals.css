@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coffee-300: #8c6b54;
+  --color-coffee-500: #6f4e37;
+  --color-coffee-700: #4b2c20;
+  --color-coffee-900: #351f17;
+  --color-coffee: var(--color-coffee-700);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@utility safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom);
+}
