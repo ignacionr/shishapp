@@ -7,7 +7,7 @@
 #include <cmath>
 #include <string>
 
-namespace viditacafe {
+namespace shishapp {
 
 void VenuesController::search(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto latStr = req->getParameter("lat");
@@ -115,4 +115,4 @@ void VenuesController::get(const HttpRequestPtr& req, std::function<void(const H
     );
 }
 
-} // namespace viditacafe
+} // namespace shishapp

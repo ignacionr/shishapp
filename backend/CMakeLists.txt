@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(viditacafe-backend CXX)
+project(shishapp-backend CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -53,8 +53,8 @@ file(GLOB_RECURSE TEST_SOURCES "tests/*.cpp")
 set(CORE_SOURCES ${SOURCES})
 list(REMOVE_ITEM CORE_SOURCES "${PROJECT_SOURCE_DIR}/src/main.cpp")
 
-add_executable(viditacafe_tests ${TEST_SOURCES} ${CORE_SOURCES})
-target_link_libraries(viditacafe_tests PRIVATE 
+add_executable(shishapp_tests ${TEST_SOURCES} ${CORE_SOURCES})
+target_link_libraries(shishapp_tests PRIVATE 
     Drogon::Drogon
     glaze::glaze
     PostgreSQL::PostgreSQL
@@ -63,6 +63,6 @@ target_link_libraries(viditacafe_tests PRIVATE
 )
 
 # Set the output directory for tests
-set_target_properties(viditacafe_tests PROPERTIES
+set_target_properties(shishapp_tests PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )

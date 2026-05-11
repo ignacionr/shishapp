@@ -3,7 +3,7 @@
 
 using namespace drogon;
 
-namespace viditacafe {
+namespace shishapp {
 
 class EquipmentController : public drogon::HttpController<EquipmentController> {
 public:
@@ -20,4 +20,4 @@ public:
     void toggle(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string id);
 };
 
-} // namespace viditacafe
+} // namespace shishapp

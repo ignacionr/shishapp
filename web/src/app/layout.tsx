@@ -15,15 +15,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Vidita Cafe | Augmenting your coffee journey",
-    template: "%s | Vidita Cafe"
+    default: "Shishapp | Your personal shisha companion",
+    template: "%s | Shishapp"
   },
-  description: "Vidita Cafe is your personal coffee journal and brewing companion. Track your sensory experiences, manage equipment, and master brewing methods like V60, Chemex, and Espresso.",
-  keywords: ["coffee", "brewing", "journal", "v60", "espresso", "chemex", "coffee tracking", "sensory journal"],
+  description: "Shishapp is your personal shisha journal and session companion. Track your sensory experiences, manage equipment, and master session methods.",
+  keywords: ["shisha", "session", "journal", "hookah", "shisha tracking", "sensory journal"],
   manifest: "/manifest.json",
-  authors: [{ name: "Vidita Cafe Team" }],
-  creator: "Vidita Cafe",
-  publisher: "Vidita Cafe",
+  authors: [{ name: "Shishapp Team" }],
+  creator: "Shishapp",
+  publisher: "Shishapp",
   formatDetection: {
     email: false,
     address: false,
@@ -32,30 +32,30 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://viditacafe.com",
-    siteName: "Vidita Cafe",
-    title: "Vidita Cafe | Augmenting your coffee journey",
-    description: "Track your sensory coffee experiences and master your brewing gear with Vidita Cafe.",
+    url: "https://shishapp.com",
+    siteName: "Shishapp",
+    title: "Shishapp | Your personal shisha companion",
+    description: "Track your sensory shisha experiences and master your shisha gear with Shishapp.",
     images: [
       {
         url: "/static/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vidita Cafe - Coffee Journaling & Brewing",
+        alt: "Shishapp - Shisha Journaling & Sessions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vidita Cafe | Augmenting your coffee journey",
-    description: "Track your sensory coffee experiences and master your brewing gear with Vidita Cafe.",
+    title: "Shishapp | Your personal shisha companion",
+    description: "Track your sensory shisha experiences and master your shisha gear with Shishapp.",
     images: ["/static/images/og-image.png"],
-    creator: "@viditacafe",
+    creator: "@shishapp",
   },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Vidita Cafe",
+    title: "Shishapp",
   },
   other: {
     "google-site-verification": "TODO-if-needed",

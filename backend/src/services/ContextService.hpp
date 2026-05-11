@@ -5,7 +5,7 @@
 #include <sstream>
 #include <algorithm>
 
-namespace viditacafe {
+namespace shishapp {
 
 class ContextService {
 public:
@@ -17,7 +17,7 @@ public:
 
     static std::string getLanguage(const drogon::HttpRequestPtr& req) {
         // 1. Explicit Header
-        auto lang = req->getHeader("X-Vidita-Language");
+        auto lang = req->getHeader("X-Shishapp-Language");
         if (!lang.empty()) return lang;
 
         // 2. Browser Preferences (Highest Signal)
@@ -66,4 +66,4 @@ public:
     }
 };
 
-} // namespace viditacafe
+} // namespace shishapp

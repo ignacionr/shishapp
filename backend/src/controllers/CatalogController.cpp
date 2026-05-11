@@ -3,7 +3,7 @@
 #include "services/StorageService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace viditacafe {
+namespace shishapp {
 
 void CatalogController::listVideos(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     AuthService::hasAdminAccess(req, [req, callback](bool isAdmin) {
@@ -322,4 +322,4 @@ void CatalogController::removeEquipment(const HttpRequestPtr& req, std::function
     });
 }
 
-} // namespace viditacafe
+} // namespace shishapp

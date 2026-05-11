@@ -1,10 +1,9 @@
-# Project Context: Web (Vidita Cafe)
+# Project Context: Web (Shishapp)
 
 ## Foundational Mandates
-- **Unified Documentation:** Refer to the **GEMINI.md**, **GOALS.md**, and **SPECIFICATION.md** files at the root of the monorepo.
-- **Web Strategy:** Refer to the **SPECIFICATION.md** and **business/BREWING_PLAN.md** for the implementation roadmap.
+- Refer to the root **GEMINI.md** and **PLAN.md** for the adaptation strategy.
 
 ## Web AI Directives
 - **Modern Web**: Use Next.js (React), TypeScript, and Tailwind CSS.
 - **Static Export**: Ensure the application works within the constraints of a static export (`output: 'export'`).
-- **URL Caching**: Maintain strict URL boundaries (`/_next/static/` and `/static/`) for CloudFlare optimization.
+- **Domain**: All terminology must be shisha-focused (Sessions, Tobacco, Lounges).

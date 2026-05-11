@@ -2,7 +2,7 @@
 #include "services/AuthService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace viditacafe {
+namespace shishapp {
 
 void AdminUserController::list(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     AuthService::hasAdminAccess(req, [req, callback](bool isAdmin) {
@@ -199,7 +199,7 @@ void AdminUserController::impersonate(const HttpRequestPtr& req, std::function<v
                 }
 
                 AuthResponse response;
-                response.token = "simulated_vidita_jwt_" + user.id;
+                response.token = "simulated_shishapp_jwt_" + user.id;
                 
                 AuthService::getUserRoles(user.id, [callback, response, user](std::vector<UserRole> roles) mutable {
                     response.user = user;
@@ -262,4 +262,4 @@ void AdminUserController::impersonate(const HttpRequestPtr& req, std::function<v
     });
 }
 
-} // namespace viditacafe
+} // namespace shishapp

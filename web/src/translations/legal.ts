@@ -12,7 +12,7 @@ export const legalTranslations = {
     p_h3: "3. Data Sharing",
     p_c3: "We do not sell your personal data. We only share information as required by law or to provide the core services of Vidita Cafe.",
     p_h4: "4. Data Deletion",
-    p_c4: "You may request the deletion of your account and all associated data at any time by contacting us at support@viditacafe.com.",
+    p_c4: "You may request the deletion of your account and all associated data at any time by contacting us at support@shishapp.com.",
     terms_title: "Terms of Service",
     terms_intro: "These Terms of Service ('Terms') govern your access to and use of Vidita Cafe. By using Vidita Cafe, you agree to be bound by these Terms.",
     t_h1: "1. Description of Service",
@@ -24,7 +24,7 @@ export const legalTranslations = {
     t_h4: "4. Termination",
     t_c4: "We reserve the right to suspend or terminate your access to the service at any time for any reason.",
     t_h5: "5. Contact",
-    t_c5: "For questions regarding these terms, please contact us at support@viditacafe.com.",
+    t_c5: "For questions regarding these terms, please contact us at support@shishapp.com.",
     last_updated: "Last updated: April 24, 2026"
   },
   'es-419': {
@@ -40,7 +40,7 @@ export const legalTranslations = {
     p_h3: "3. Intercambio de datos",
     p_c3: "No vendemos tus datos personales. Solo compartimos información según lo exija la ley o para proporcionar los servicios principales de Vidita Cafe.",
     p_h4: "4. Eliminación de datos",
-    p_c4: "Puedes solicitar la eliminación de tu cuenta y todos los datos asociados en cualquier momento contactándonos en support@viditacafe.com.",
+    p_c4: "Puedes solicitar la eliminación de tu cuenta y todos los datos asociados en cualquier momento contactándonos en support@shishapp.com.",
     terms_title: "Términos de Servicio",
     terms_intro: "Estos Términos de Servicio ('Términos') rigen tu acceso y uso de Vidita Cafe. Al usar Vidita Cafe, aceptas estar sujeto a estos Términos.",
     t_h1: "1. Descripción del servicio",
@@ -52,7 +52,7 @@ export const legalTranslations = {
     t_h4: "4. Terminación",
     t_c4: "Nos reservamos el derecho de suspender o terminar tu acceso al servicio en cualquier momento por cualquier motivo.",
     t_h5: "5. Contacto",
-    t_c5: "Para preguntas sobre estos términos, contáctanos en support@viditacafe.com.",
+    t_c5: "Para preguntas sobre estos términos, contáctanos en support@shishapp.com.",
     last_updated: "Última actualización: 24 de abril de 2026"
   },
   'pt-BR': {
@@ -68,7 +68,7 @@ export const legalTranslations = {
     p_h3: "3. Compartilhamento de dados",
     p_c3: "Não vendemos seus dados pessoais. Só compartilhamos informações conforme exigido por lei ou para fornecer os serviços principais do Vidita Cafe.",
     p_h4: "4. Exclusão de dados",
-    p_c4: "Você pode solicitar a exclusão de sua conta e de todos os dados associados a qualquer momento entrando em contato conosco em support@viditacafe.com.",
+    p_c4: "Você pode solicitar a exclusão de sua conta e de todos os dados associados a qualquer momento entrando em contato conosco em support@shishapp.com.",
     terms_title: "Termos de Serviço",
     terms_intro: "Estes Termos de Serviço ('Termos') regem o seu acesso e uso do Vidita Cafe. Ao usar o Vidita Cafe, você concorda em cumprir estes Termos.",
     t_h1: "1. Descrição do Serviço",
@@ -80,7 +80,7 @@ export const legalTranslations = {
     t_h4: "4. Rescisão",
     t_c4: "Reservamo-nos o direito de suspender ou encerrar seu acesso ao serviço a qualquer momento, por qualquer motivo.",
     t_h5: "5. Contato",
-    t_c5: "Para perguntas sobre estes termos, entre em contato conosco em support@viditacafe.com.",
+    t_c5: "Para perguntas sobre estes termos, entre em contato conosco em support@shishapp.com.",
     last_updated: "Última atualização: 24 de abril de 2026"
   },
   ru: {
@@ -96,7 +96,7 @@ export const legalTranslations = {
     p_h3: "3. Обмен данными",
     p_c3: "Мы не продаем ваши личные данные. Мы передаем информацию только в соответствии с требованиями закона или для предоставления основных услуг Vidita Cafe.",
     p_h4: "4. Удаление данных",
-    p_c4: "Вы можете запросить удаление своей учетной записи и всех связанных данных в любое время, связавшись с нами по адресу support@viditacafe.com.",
+    p_c4: "Вы можете запросить удаление своей учетной записи и всех связанных данных в любое время, связавшись с нами по адресу support@shishapp.com.",
     terms_title: "Условия использования",
     terms_intro: "Настоящие Условия использования («Условия») регулируют ваш доступ к Vidita Cafe и его использование. Используя Vidita Cafe, вы соглашаетесь соблюдать настоящие Условия.",
     t_h1: "1. Описание услуги",
@@ -108,7 +108,7 @@ export const legalTranslations = {
     t_h4: "4. Прекращение действия",
     t_c4: "Мы оставляем за собой право приостановить или прекратить ваш доступ к сервису в любое время по любой причине.",
     t_h5: "5. Контакты",
-    t_c5: "По вопросам, касающимся этих условий, пожалуйста, свяжитесь с нами по адресу support@viditacafe.com.",
+    t_c5: "По вопросам, касающимся этих условий, пожалуйста, свяжитесь с нами по адресу support@shishapp.com.",
     last_updated: "Последнее обновление: 24 апреля 2026 г."
   },
   ka: {
@@ -124,7 +124,7 @@ export const legalTranslations = {
     p_h3: "3. მონაცემთა გაზიარება",
     p_c3: "ჩვენ არ ვყიდით თქვენს პირად მონაცემებს. ინფორმაციას ვაზიარებთ მხოლოდ კანონით გათვალისწინებულ შემთხვევებში ან Vidita Cafe-ს ძირითადი სერვისების უზრუნველსაყოფად.",
     p_h4: "4. მონაცემთა წაშლა",
-    p_c4: "თქვენ შეგიძლიათ მოითხოვოთ თქვენი ანგარიშის და მასთან დაკავშირებული ყველა მონაცემის წაშლა ნებისმიერ დროს, მოგვწერეთ მისამართზე support@viditacafe.com.",
+    p_c4: "თქვენ შეგიძლიათ მოითხოვოთ თქვენი ანგარიშის და მასთან დაკავშირებული ყველა მონაცემის წაშლა ნებისმიერ დროს, მოგვწერეთ მისამართზე support@shishapp.com.",
     terms_title: "მომსახურების პირობები",
     terms_intro: "მომსახურების ეს პირობები ('პირობები') არეგულირებს თქვენს წვდომას და Vidita Cafe-ს გამოყენებას. Vidita Cafe-ს გამოყენებით თქვენ ეთანხმებით ამ პირობებს.",
     t_h1: "1. სერვისის აღწერა",
@@ -136,7 +136,7 @@ export const legalTranslations = {
     t_h4: "4. მომსახურების შეწყვეტა",
     t_c4: "ჩვენ ვიტოვებთ უფლებას შევაჩეროთ ან შევწყვიტოთ თქვენი წვდომა სერვისზე ნებისმიერ დროს, ნებისმიერი მიზეზით.",
     t_h5: "5. კონტაქტი",
-    t_c5: "ამ პირობებთან დაკავშირებული კითხვებისთვის გთხოვთ დაგვიკავშირდეთ მისამართზე support@viditacafe.com.",
+    t_c5: "ამ პირობებთან დაკავშირებული კითხვებისთვის გთხოვთ დაგვიკავშირდეთ მისამართზე support@shishapp.com.",
     last_updated: "ბოლო განახლება: 24 აპრილი, 2026 წელი"
   },
   it: {
@@ -152,7 +152,7 @@ export const legalTranslations = {
     p_h3: "3. Condivisione dei Dati",
     p_c3: "Non vendiamo i tuoi dati personali. Condividiamo le informazioni solo se richiesto dalla legge o per fornire i servizi principali di Vidita Cafe.",
     p_h4: "4. Eliminazione dei Dati",
-    p_c4: "Puoi richiedere la cancellazione del tuo account e di tutti i dati associati in qualsiasi momento contattandoci all'indirizzo support@viditacafe.com.",
+    p_c4: "Puoi richiedere la cancellazione del tuo account e di tutti i dati associati in qualsiasi momento contattandoci all'indirizzo support@shishapp.com.",
     terms_title: "Termini di Servizio",
     terms_intro: "Questi Termini di Servizio ('Termini') regolano l'accesso e l'uso di Vidita Cafe. Utilizzando Vidita Cafe, accetti di essere vincolato da questi Termini.",
     t_h1: "1. Descrizione del Servizio",
@@ -164,7 +164,7 @@ export const legalTranslations = {
     t_h4: "4. Risoluzione",
     t_c4: "Ci riserviamo il diritto di sospendere o interrompere l'accesso al servizio in qualsiasi momento per qualsiasi motivo.",
     t_h5: "5. Contatto",
-    t_c5: "Per domande relative a questi termini, contattaci all'indirizzo support@viditacafe.com.",
+    t_c5: "Per domande relative a questi termini, contattaci all'indirizzo support@shishapp.com.",
     last_updated: "Ultimo aggiornamento: 24 aprile 2026"
   }
 };

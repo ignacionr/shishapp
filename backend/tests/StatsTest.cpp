@@ -5,7 +5,7 @@
 #include <glaze/glaze.hpp>
 #include <future>
 
-using namespace viditacafe;
+using namespace shishapp;
 
 class StatsTest : public ::testing::Test {
 protected:

@@ -11,8 +11,8 @@
       let
         pkgs = import nixpkgs { inherit system; };
         
-        viditacafe-web = pkgs.stdenv.mkDerivation {
-          pname = "viditacafe-web";
+        shishapp-web = pkgs.stdenv.mkDerivation {
+          pname = "shishapp-web";
           version = "1.0.0";
           src = ./.;
           
@@ -31,7 +31,7 @@
         };
       in
       {
-        packages.default = viditacafe-web;
+        packages.default = shishapp-web;
         
         devShells.default = pkgs.mkShell {
           buildInputs = [

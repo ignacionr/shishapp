@@ -4,7 +4,7 @@
 
 using namespace drogon;
 
-namespace viditacafe {
+namespace shishapp {
 
 class AdminVenueController : public drogon::HttpController<AdminVenueController> {
 public:
@@ -29,4 +29,4 @@ public:
     void setVenueTags(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string venueId);
 };
 
-} // namespace viditacafe
+} // namespace shishapp

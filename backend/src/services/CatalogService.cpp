@@ -1,6 +1,6 @@
 #include "CatalogService.hpp"
 
-namespace viditacafe {
+namespace shishapp {
 
 void CatalogService::listVideos(const std::string& lang,
                                std::function<void(std::vector<Video>)>&& successCallback,
@@ -280,4 +280,4 @@ void CatalogService::removeEquipment(const std::string& id,
     );
 }
 
-} // namespace viditacafe
+} // namespace shishapp

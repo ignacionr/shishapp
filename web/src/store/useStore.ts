@@ -199,7 +199,7 @@ export const useStore = create<AppState>()(
       }),
     }),
     {
-      name: 'viditacafe-storage',
+      name: 'shishapp-storage',
       version: 6, 
       partialize: (state) => ({ 
         journals: state.journals, 

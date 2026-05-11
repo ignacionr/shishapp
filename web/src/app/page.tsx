@@ -167,12 +167,12 @@ function HomePageContent() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Vidita Cafe",
-            "url": "https://viditacafe.com",
-            "description": "Vidita Cafe is your personal coffee journal and brewing companion.",
+            "name": "Shishapp",
+            "url": "https://shishapp.com",
+            "description": "Shishapp is your personal shisha journal and session companion.",
             "applicationCategory": "LifestyleApplication, UtilityApplication",
             "operatingSystem": "Web (PWA)",
-            "author": { "@type": "Organization", "name": "Vidita Cafe" }
+            "author": { "@type": "Organization", "name": "Shishapp" }
           })
         }}
       />

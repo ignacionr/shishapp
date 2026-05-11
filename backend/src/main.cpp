@@ -4,7 +4,7 @@
 #include "controllers/VenueAdminController.hpp"
 
 int main() {
-    std::cout << "Starting Vidita Cafe Backend..." << std::endl;
+    std::cout << "Starting Shishapp Backend..." << std::endl;
 
     // Load configuration
     try {
@@ -18,7 +18,7 @@ int main() {
     // Initialize database client directly
     // This is the ONLY method that currently works with our Nix-built Drogon
     // Note: host=127.0.0.1 forces TCP, which uses 'trust' auth as configured in pg_hba.conf
-    std::string connStr = "host=127.0.0.1 port=5432 dbname=viditacafe user=inz client_encoding=UTF8";
+    std::string connStr = "host=127.0.0.1 port=5432 dbname=shishapp user=inz client_encoding=UTF8";
     auto db = drogon::orm::DbClient::newPgClient(connStr, 5, "default");
     
     if (!db) {

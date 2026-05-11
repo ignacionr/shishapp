@@ -5,7 +5,7 @@
 #include <functional>
 #include "models/models.hpp"
 
-namespace viditacafe {
+namespace shishapp {
 
 class UserService {
 public:
@@ -30,4 +30,4 @@ public:
                                        std::function<void(const drogon::orm::DrogonDbException&)>&& errorCallback);
 };
 
-} // namespace viditacafe
+} // namespace shishapp

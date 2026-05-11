@@ -5,7 +5,7 @@
 #include "services/AuthService.hpp"
 #include "services/ContextService.hpp"
 
-namespace viditacafe {
+namespace shishapp {
 
 void FeedController::feed(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto db = drogon::app().getDbClient();
@@ -97,4 +97,4 @@ void FeedController::feed(const HttpRequestPtr& req, std::function<void(const Ht
     );
 }
 
-} // namespace viditacafe
+} // namespace shishapp

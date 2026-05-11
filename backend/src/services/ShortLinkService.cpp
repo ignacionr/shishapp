@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cctype>
 
-namespace viditacafe {
+namespace shishapp {
 
 void ShortLinkService::listShortLinks(std::function<void(std::vector<ShortLink>)>&& successCallback,
                                      std::function<void(const drogon::orm::DrogonDbException&)>&& errorCallback) {
@@ -138,4 +138,4 @@ void ShortLinkService::assignShortLinkBlock(const ShortLinkBlockRequest& br,
     }
 }
 
-} // namespace viditacafe
+} // namespace shishapp

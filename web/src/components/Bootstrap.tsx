@@ -97,7 +97,7 @@ export default function Bootstrap() {
 
     const baseHeaders: Record<string, string> = {};
     if (user?.language) {
-      baseHeaders['X-Vidita-Language'] = user.language;
+      baseHeaders['X-Shishapp-Language'] = user.language;
     }
     
     let authFailed = false;
@@ -155,7 +155,7 @@ export default function Bootstrap() {
           setSyncing(entry.id, true);
           const headers: Record<string, string> = { 
             'Content-Type': 'application/json', 
-            'X-Vidita-Language': user?.language || 'en' 
+            'X-Shishapp-Language': user?.language || 'en' 
           };
           if (currentToken) {
             headers['Authorization'] = `Bearer ${currentToken}`;

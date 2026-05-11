@@ -9,7 +9,7 @@
 #include <set>
 #include <algorithm>
 
-namespace viditacafe {
+namespace shishapp {
 
 void AdminController::stats(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto userId = AuthService::getUserIdFromRequest(req);
@@ -144,4 +144,4 @@ void AdminController::stats(const HttpRequestPtr& req, std::function<void(const 
     });
 }
 
-} // namespace viditacafe
+} // namespace shishapp

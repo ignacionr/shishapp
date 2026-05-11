@@ -20,8 +20,8 @@
           cmakeFlags = (old.cmakeFlags or []) ++ [ "-DBUILD_SHARED_LIBS=ON" ];
         });
 
-        viditacafe-backend = pkgs.stdenv.mkDerivation {
-          pname = "viditacafe-backend";
+        shishapp-backend = pkgs.stdenv.mkDerivation {
+          pname = "shishapp-backend";
           version = "1.0.0";
           src = ./.;
 
@@ -54,15 +54,15 @@
 
           installPhase = ''
             mkdir -p $out/bin
-            cp bin/viditacafe-backend $out/bin/
+            cp bin/shishapp-backend $out/bin/
           '';
         };
 
         dockerImage = pkgs.dockerTools.buildImage {
-          name = "viditacafe-backend";
+          name = "shishapp-backend";
           tag = "latest";
           contents = [
-            viditacafe-backend
+            shishapp-backend
             pkgs.cacert
             pkgs.sqlite
             pkgs.postgresql.lib
@@ -71,14 +71,14 @@
             pkgs.openssl
           ];
           config = {
-            Cmd = [ "${viditacafe-backend}/bin/viditacafe-backend" ];
-            WorkingDir = "/opt/viditacafe";
+            Cmd = [ "${shishapp-backend}/bin/shishapp-backend" ];
+            WorkingDir = "/opt/shishapp";
             ExposedPorts = { "8080/tcp" = {}; };
           };
         };
       in
       {
-        packages.default = viditacafe-backend;
+        packages.default = shishapp-backend;
         packages.dockerImage = dockerImage;
         
         devShells.default = pkgs.mkShell {

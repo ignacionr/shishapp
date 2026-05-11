@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/in/'],
     },
-    sitemap: 'https://viditacafe.com/sitemap.xml',
+    sitemap: 'https://shishapp.com/sitemap.xml',
   };
 }

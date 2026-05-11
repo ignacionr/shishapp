@@ -3,7 +3,7 @@
 #include <glaze/glaze.hpp>
 #include <string>
 
-using namespace viditacafe;
+using namespace shishapp;
 
 TEST(EncodingTest, UTF8CharacterPreservation) {
     // The user's name with accented characters

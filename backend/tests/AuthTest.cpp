@@ -2,7 +2,7 @@
 #include "models/models.hpp"
 #include <glaze/glaze.hpp>
 
-using namespace viditacafe;
+using namespace shishapp;
 
 TEST(AuthModelTest, Serialization) {
     User user = {"1", "test@example.com", "Test User"};

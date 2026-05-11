@@ -2,11 +2,11 @@
 #include "../src/services/ContextService.hpp"
 #include <drogon/HttpRequest.h>
 
-using namespace viditacafe;
+using namespace shishapp;
 
 TEST(ContextServiceTest, GetLanguageFromExplicitHeader) {
     auto req = drogon::HttpRequest::newHttpRequest();
-    req->addHeader("X-Vidita-Language", "pt-BR");
+    req->addHeader("X-Shishapp-Language", "pt-BR");
     
     EXPECT_EQ(ContextService::getLanguage(req), "pt-BR");
 }

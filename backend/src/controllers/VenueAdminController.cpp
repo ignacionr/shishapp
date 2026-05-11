@@ -7,7 +7,7 @@
 #include <sstream>
 #include <map>
 
-namespace viditacafe {
+namespace shishapp {
 
 void VenueAdminController::stats(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string venueId, std::string period) {
     AuthService::verifyRole(req, "VENUE", venueId, [callback, venueId, period](bool hasAccess) {
@@ -225,4 +225,4 @@ void VenueAdminController::removePromotion(const HttpRequestPtr& req, std::funct
     );
 }
 
-} // namespace viditacafe
+} // namespace shishapp

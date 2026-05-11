@@ -2,7 +2,7 @@
 #include "models/models.hpp"
 #include <glaze/glaze.hpp>
 
-using namespace viditacafe;
+using namespace shishapp;
 
 TEST(CatalogModelTest, VideoSerialization) {
     Video v = {"1", "slug", "Title", "Description", "en"};

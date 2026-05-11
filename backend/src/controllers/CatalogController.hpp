@@ -4,7 +4,7 @@
 
 using namespace drogon;
 
-namespace viditacafe {
+namespace shishapp {
 
 class CatalogController : public drogon::HttpController<CatalogController> {
 public:
@@ -41,4 +41,4 @@ public:
     void removeEquipment(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string id);
 };
 
-} // namespace viditacafe
+} // namespace shishapp
