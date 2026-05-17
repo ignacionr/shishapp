@@ -1,0 +1,61 @@
+name: Deploy MyShisha.vip
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rsync to Server
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          # Sync files to /opt/myshisha
+          rsync -avz -e "ssh -i private_key -o StrictHostKeyChecking=no" \
+            --exclude '.git' \
+            --exclude 'node_modules' \
+            --exclude 'backend/build' \
+            --exclude 'backend/result' \
+            --exclude 'web/result' \
+            --exclude 'web/.next' \
+            . root@${{ secrets.SERVER_IP }}:/opt/myshisha/
+          rm private_key
+
+      - name: Build and Restart
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            echo "Building Backend..."
+            cd /opt/myshisha/backend
+            nix build . --extra-experimental-features "nix-command flakes"
+            
+            echo "Building Web..."
+            cd /opt/myshisha/web
+            nix build . --extra-experimental-features "nix-command flakes"
+            
+            echo "Updating web content in backend/www..."
+            # Ensure www exists
+            mkdir -p /opt/myshisha/backend/www
+            # Sync web result to backend/www
+            rsync -avL --delete /opt/myshisha/web/result/ /opt/myshisha/backend/www/
+            
+            echo "Restarting MyShisha service..."
+            systemctl restart myshisha
+            
+            echo "Waiting for service to start..."
+            sleep 5
+            
+            echo "Running health check..."
+            curl -f http://127.0.0.1:8100/ || (echo "Health check failed!" && exit 1)
+            
+            echo "Deployment successful!"
