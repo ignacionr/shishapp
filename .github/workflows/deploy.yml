@@ -41,13 +41,15 @@ jobs:
             
             echo "Building Web..."
             cd /opt/myshisha/web
-            nix build . --extra-experimental-features "nix-command flakes"
+            # Build directly to allow network access for npm
+            npm install
+            npm run build
             
             echo "Updating web content in backend/www..."
             # Ensure www exists
             mkdir -p /opt/myshisha/backend/www
-            # Sync web result to backend/www
-            rsync -avL --delete /opt/myshisha/web/result/ /opt/myshisha/backend/www/
+            # Sync web output to backend/www
+            rsync -avL --delete /opt/myshisha/web/out/ /opt/myshisha/backend/www/
             
             echo "Restarting MyShisha service..."
             systemctl restart myshisha
