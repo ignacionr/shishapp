@@ -5,7 +5,7 @@
 #include <sstream>
 #include <algorithm>
 
-namespace shishapp {
+namespace myshisha {
 
 class ContextService {
 public:
@@ -17,11 +17,12 @@ public:
 
     static std::string getLanguage(const drogon::HttpRequestPtr& req) {
         // 1. Explicit Header
-        auto lang = req->getHeader("X-Shishapp-Language");
+        auto lang = req->getHeader("X-MyShisha.vip-Language");
         if (!lang.empty()) return lang;
 
         // 2. Browser Preferences (Highest Signal)
         auto accept = req->getHeader("Accept-Language");
+        if (accept.find("ar") != std::string::npos) return "ar";
         if (accept.find("es") != std::string::npos) return "es-419";
         if (accept.find("pt") != std::string::npos) return "pt-BR";
         if (accept.find("ru") != std::string::npos) return "ru";
@@ -30,6 +31,9 @@ public:
 
         // 3. Inferred from Country (Fallback)
         std::string country = getCountry(req);
+        if (country == "SA" || country == "AE" || country == "EG" || country == "JO" || 
+            country == "LB" || country == "KW" || country == "QA" || country == "OM" || 
+            country == "BH" || country == "IQ" || country == "SY" || country == "YE") return "ar";
         if (country == "AR" || country == "UY" || country == "ES" || country == "MX") return "es-419";
         if (country == "BR") return "pt-BR";
         if (country == "RU") return "ru";
@@ -66,4 +70,4 @@ public:
     }
 };
 
-} // namespace shishapp
+} // namespace myshisha

@@ -44,7 +44,7 @@ export function EquipmentCatalog({
               }); 
               setIsEditingEquipment(true); 
             }}
-            className="bg-coffee text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
+            className="bg-stone-700 text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
           >
             <Plus size={20} />
           </button>
@@ -70,7 +70,7 @@ export function EquipmentCatalog({
                   <p className="text-[10px] text-stone-400 font-bold truncate">{Object.keys(e.translations || {}).length} translations</p>
                </div>
                <div className="flex items-center space-x-1">
-                  <button onClick={() => { setCurrentEquipment(e); setIsEditingEquipment(true); }} className="p-2 text-stone-400 hover:text-coffee transition-colors"><Edit3 size={18} /></button>
+                  <button onClick={() => { setCurrentEquipment(e); setIsEditingEquipment(true); }} className="p-2 text-stone-400 hover:text-stone-700 transition-colors"><Edit3 size={18} /></button>
                   <button onClick={() => handleDeleteEquipment(e.id)} className="p-2 text-stone-400 hover:text-red-500 transition-colors"><Trash2 size={18} /></button>
                </div>
             </div>

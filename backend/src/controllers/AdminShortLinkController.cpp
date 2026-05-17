@@ -2,7 +2,7 @@
 #include "services/AuthService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace shishapp {
+namespace myshisha {
 
 void AdminShortLinkController::list(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     AuthService::hasAdminAccess(req, [callback](bool isAdmin) {
@@ -135,4 +135,4 @@ void AdminShortLinkController::remove(const HttpRequestPtr& req, std::function<v
     });
 }
 
-} // namespace shishapp
+} // namespace myshisha

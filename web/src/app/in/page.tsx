@@ -121,7 +121,7 @@ function AuthContent() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center p-6 text-center">
-      <Loader2 className="text-coffee animate-spin mb-6" size={64} />
+      <Loader2 className="text-stone-700 animate-spin mb-6" size={64} />
       <h1 className="text-2xl font-bold mb-2 dark:text-stone-100">{t.authenticating}</h1>
       <p className="text-stone-500">{t.auth_handshake_msg}</p>
     </div>
@@ -132,7 +132,7 @@ export default function AuthPage() {
   return (
     <Suspense fallback={
         <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center p-6 text-center">
-          <Loader2 className="text-coffee animate-spin mb-6" size={64} />
+          <Loader2 className="text-stone-700 animate-spin mb-6" size={64} />
         </div>
     }>
       <AuthContent />

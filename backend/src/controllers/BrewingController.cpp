@@ -7,7 +7,7 @@
 #include <sstream>
 #include <map>
 
-namespace shishapp {
+namespace myshisha {
 
 void BrewingController::methods(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto db = drogon::app().getDbClient();
@@ -186,4 +186,4 @@ void BrewingController::removePreset(const HttpRequestPtr& req, std::function<vo
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

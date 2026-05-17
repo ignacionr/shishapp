@@ -4,7 +4,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class AdminUserController : public drogon::HttpController<AdminUserController> {
 public:
@@ -21,4 +21,4 @@ public:
     void impersonate(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string userId);
 };
 
-} // namespace shishapp
+} // namespace myshisha

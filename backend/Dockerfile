@@ -55,10 +55,10 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY --from=builder /app/build/bin/shishapp-backend .
+COPY --from=builder /app/build/bin/myshisha-backend .
 COPY --from=builder /app/config.json .
 # The www folder is handled by the CD workflow separately
 
 EXPOSE 8080
 
-CMD ["./shishapp-backend"]
+CMD ["./myshisha-backend"]

@@ -110,8 +110,8 @@ export function VenueTagsEditor({
                   className={cn(
                     "px-4 py-2 rounded-2xl text-xs font-bold transition-all border",
                     isSelected 
-                      ? "bg-coffee text-white border-coffee shadow-md scale-105" 
-                      : "bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 border-stone-100 dark:border-stone-800 hover:border-coffee/30"
+                      ? "bg-stone-700 text-white border-stone-700 shadow-md scale-105" 
+                      : "bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 border-stone-100 dark:border-stone-800 hover:border-stone-700/30"
                   )}
                 >
                   {tag.translations[lang] || tag.translations['en'] || tag.name}
@@ -126,12 +126,12 @@ export function VenueTagsEditor({
                   value={newTagName}
                   onChange={(e) => setNewTagName(e.target.value)}
                   placeholder="New menu item..."
-                  className="bg-stone-50 dark:bg-stone-950 border border-stone-100 dark:border-stone-800 rounded-2xl px-4 py-2 text-xs focus:outline-none focus:border-coffee/50 w-32"
+                  className="bg-stone-50 dark:bg-stone-950 border border-stone-100 dark:border-stone-800 rounded-2xl px-4 py-2 text-xs focus:outline-none focus:border-stone-700/50 w-32"
                 />
                 <button
                   onClick={handleAddNewTag}
                   disabled={isAddingTag || !newTagName.trim()}
-                  className="bg-stone-100 dark:bg-stone-800 hover:bg-coffee hover:text-white p-2 rounded-2xl transition-colors disabled:opacity-50"
+                  className="bg-stone-100 dark:bg-stone-800 hover:bg-stone-700 hover:text-white p-2 rounded-2xl transition-colors disabled:opacity-50"
                 >
                   {isAddingTag ? <Loader2 size={16} className="animate-spin" /> : <Plus size={16} />}
                 </button>

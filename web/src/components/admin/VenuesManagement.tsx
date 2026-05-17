@@ -32,7 +32,7 @@ export function VenuesManagement({
           </div>
           <button 
             onClick={() => { setCurrentVenue({ name: '', latitude: 0, longitude: 0, address: '', city: '', country_code: adminCountries[0] || 'AR' }); setIsEditingVenue(true); }}
-            className="bg-coffee text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
+            className="bg-stone-700 text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
           >
             <Plus size={20} />
           </button>
@@ -47,12 +47,12 @@ export function VenuesManagement({
                      <span className="text-[10px] text-stone-500 font-medium">{v.city}, {v.country_code}</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                     <button onClick={() => { setCurrentVenue(v); setIsEditingVenue(true); }} className="p-2 text-stone-400 hover:text-coffee transition-colors"><Edit3 size={16} /></button>
+                     <button onClick={() => { setCurrentVenue(v); setIsEditingVenue(true); }} className="p-2 text-stone-400 hover:text-stone-700 transition-colors"><Edit3 size={16} /></button>
                      <button onClick={() => handleDeleteVenue(v.id)} className="p-2 text-stone-400 hover:text-red-500 transition-colors"><Trash2 size={16} /></button>
                   </div>
                </div>
                <p className="text-[10px] text-stone-400 font-bold truncate">{v.address}</p>
-               <div className="flex items-center space-x-2 text-[10px] font-black text-coffee-700/50">
+               <div className="flex items-center space-x-2 text-[10px] font-black text-stone-700/50">
                   <Globe size={12} />
                   <span>{v.latitude.toFixed(4)}, {v.longitude.toFixed(4)}</span>
                </div>

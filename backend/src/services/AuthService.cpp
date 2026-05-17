@@ -1,19 +1,19 @@
 #include "AuthService.hpp"
 #include <drogon/drogon.h>
 
-namespace shishapp {
+namespace myshisha {
 
 std::optional<std::string> AuthService::getUserIdFromRequest(const drogon::HttpRequestPtr& req) {
     std::string authHeader = req->getHeader("Authorization");
     if (authHeader.find("Bearer ") == 0) {
         std::string token = authHeader.substr(7);
-        if (token.find("simulated_shishapp_jwt_") == 0) {
+        if (token.find("simulated_myshisha_jwt_") == 0) {
             return token.substr(21);
         }
     }
 
-    std::string customToken = req->getHeader("X-Shishapp-Token");
-    if (customToken.find("simulated_shishapp_jwt_") == 0) {
+    std::string customToken = req->getHeader("X-MyShisha.vip-Token");
+    if (customToken.find("simulated_myshisha_jwt_") == 0) {
         return customToken.substr(21);
     }
 
@@ -97,4 +97,4 @@ void AuthService::hasAdminAccess(const drogon::HttpRequestPtr& req,
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

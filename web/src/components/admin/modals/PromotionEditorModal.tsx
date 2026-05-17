@@ -34,7 +34,7 @@ export function PromotionEditorModal({
                 <select 
                   value={currentPromotion.type} 
                   onChange={e => setCurrentPromotion({...currentPromotion, type: e.target.value})} 
-                  className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50"
+                  className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50"
                 >
                   <option value="suggestion">Suggestion</option>
                   <option value="video">Video</option>
@@ -59,7 +59,7 @@ export function PromotionEditorModal({
                 </div>
              )}
           </div>
-          <button onClick={handleSavePromotion} disabled={isSavingPromotion} className="w-full bg-coffee text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
+          <button onClick={handleSavePromotion} disabled={isSavingPromotion} className="w-full bg-stone-700 text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
             {isSavingPromotion ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
             <span>{t.add_promotion}</span>
           </button>

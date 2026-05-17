@@ -6,7 +6,7 @@
 #include <glaze/glaze.hpp>
 #include <map>
 
-namespace shishapp {
+namespace myshisha {
 
 void EquipmentController::list(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto db = drogon::app().getDbClient();
@@ -144,4 +144,4 @@ void EquipmentController::toggle(const HttpRequestPtr& req, std::function<void(c
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

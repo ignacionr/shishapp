@@ -6,7 +6,7 @@
 #include <functional>
 #include "models/models.hpp"
 
-namespace shishapp {
+namespace myshisha {
 
 class AuthService {
 public:
@@ -23,4 +23,4 @@ public:
                                std::function<void(bool)> callback);
 };
 
-} // namespace shishapp
+} // namespace myshisha

@@ -95,7 +95,7 @@ export function VenueDashboard({
               <select 
                 value={selectedVenueId}
                 onChange={(e) => setSelectedVenueId(e.target.value)}
-                className="bg-stone-200 dark:bg-stone-800 text-[10px] font-black uppercase px-4 py-2 rounded-full outline-none focus:ring-2 focus:ring-coffee/30"
+                className="bg-stone-200 dark:bg-stone-800 text-[10px] font-black uppercase px-4 py-2 rounded-full outline-none focus:ring-2 focus:ring-stone-700/30"
               >
                 {venueRoles.map(vr => (
                   <option key={vr.id} value={vr.target_id}>{vr.target_id}</option>
@@ -153,7 +153,7 @@ export function VenueDashboard({
           {!isEditingVenueTags ? (
             <button 
               onClick={() => setIsEditingVenueTags(true)}
-              className="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-coffee/10 hover:text-coffee transition-all"
+              className="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-stone-700/10 hover:text-stone-700 transition-all"
             >
               {(t as any).edit_tags}
             </button>
@@ -176,7 +176,7 @@ export function VenueDashboard({
               <button 
                 onClick={handleSaveVenueTags}
                 disabled={isSavingVenueTags}
-                className="bg-coffee text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg flex items-center space-x-2"
+                className="bg-stone-700 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg flex items-center space-x-2"
               >
                 {isSavingVenueTags ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
                 <span>{(t as any).save_tags}</span>
@@ -240,7 +240,7 @@ export function VenueDashboard({
               });
               setIsEditingPromotion(true);
             }}
-            className="bg-coffee text-white p-3 rounded-full shadow-lg active:scale-90 transition-transform"
+            className="bg-stone-700 text-white p-3 rounded-full shadow-lg active:scale-90 transition-transform"
           >
             <Plus size={20} />
           </button>
@@ -250,7 +250,7 @@ export function VenueDashboard({
           {venuePromotions.length > 0 ? venuePromotions.map(promo => (
             <div key={promo.id} className="bg-white dark:bg-stone-900 p-6 rounded-[32px] border border-stone-100 dark:border-stone-800 shadow-sm flex flex-col space-y-4">
               <div className="flex justify-between items-start">
-                <span className="bg-coffee/10 text-coffee-700 dark:text-coffee-300 px-3 py-1 rounded-xl text-[10px] font-black uppercase tracking-widest">
+                <span className="bg-stone-700/10 text-stone-700 dark:text-stone-300 px-3 py-1 rounded-xl text-[10px] font-black uppercase tracking-widest">
                   {promo.type}
                 </span>
                 <button onClick={() => handleDeletePromotion(promo.id)} className="p-2 text-stone-400 hover:text-red-500 transition-colors">
@@ -267,7 +267,7 @@ export function VenueDashboard({
                 <p className="text-sm text-stone-500 font-medium line-clamp-3 mt-1">{promo.content}</p>
               </div>
               {promo.youtube_id && (
-                <div className="flex items-center space-x-2 text-coffee font-black text-[10px] uppercase tracking-widest">
+                <div className="flex items-center space-x-2 text-stone-700 font-black text-[10px] uppercase tracking-widest">
                   <PlayCircle size={14} />
                   <span>YouTube: {promo.youtube_id}</span>
                 </div>

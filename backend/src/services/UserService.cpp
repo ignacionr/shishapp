@@ -1,7 +1,7 @@
 #include "UserService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace shishapp {
+namespace myshisha {
 
 void UserService::listUsers(const std::string& q,
                            std::function<void(std::vector<User>)>&& successCallback,
@@ -123,4 +123,4 @@ void UserService::getUserForImpersonation(const std::string& userId,
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

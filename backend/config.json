@@ -7,7 +7,7 @@
         "listeners": [
             {
                 "address": "0.0.0.0",
-                "port": 8080,
+                "port": 8100,
                 "https": false
             }
         ]
@@ -18,7 +18,7 @@
             "rdbms": "postgresql",
             "host": "127.0.0.1",
             "port": 5432,
-            "dbname": "shishapp",
+            "dbname": "myshisha",
             "user": "inz",
             "passwd": "vidita_secret"
         }

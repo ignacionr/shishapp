@@ -1,7 +1,7 @@
 #include "ShortLinkController.hpp"
 #include <drogon/HttpAppFramework.h>
 
-namespace shishapp {
+namespace myshisha {
 
 void ShortLinkController::redirect(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, const std::string& code) {
     auto db = drogon::app().getDbClient();
@@ -28,4 +28,4 @@ void ShortLinkController::redirect(const HttpRequestPtr& req, std::function<void
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

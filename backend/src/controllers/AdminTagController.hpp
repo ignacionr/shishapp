@@ -4,7 +4,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class AdminTagController : public drogon::HttpController<AdminTagController> {
 public:
@@ -21,4 +21,4 @@ public:
     void setCountryTags(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string countryCode);
 };
 
-} // namespace shishapp
+} // namespace myshisha

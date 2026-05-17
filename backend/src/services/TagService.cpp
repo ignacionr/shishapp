@@ -1,7 +1,7 @@
 #include "TagService.hpp"
 #include <algorithm>
 
-namespace shishapp {
+namespace myshisha {
 
 void TagService::listAllTags(std::function<void(std::vector<FullTagCategory>)>&& successCallback,
                             std::function<void(const drogon::orm::DrogonDbException&)>&& errorCallback) {
@@ -232,4 +232,4 @@ void TagService::setCountryTags(const std::string& countryCode, const std::vecto
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

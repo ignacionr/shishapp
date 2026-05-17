@@ -10,6 +10,7 @@ function getBrowserLang(): Language {
   if (navLang.startsWith('ru')) return 'ru';
   if (navLang.startsWith('ka')) return 'ka';
   if (navLang.startsWith('it')) return 'it';
+  if (navLang.startsWith('ar')) return 'ar';
   return 'en';
 }
 

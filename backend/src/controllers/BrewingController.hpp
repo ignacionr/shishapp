@@ -3,7 +3,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class BrewingController : public drogon::HttpController<BrewingController> {
 public:
@@ -23,4 +23,4 @@ public:
     void removePreset(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string id);
 };
 
-} // namespace shishapp
+} // namespace myshisha

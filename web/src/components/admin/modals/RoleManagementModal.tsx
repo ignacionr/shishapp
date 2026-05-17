@@ -78,18 +78,18 @@ export function RoleManagementModal({
                             <button 
                                 key={c.code}
                                 onClick={() => handleAssignRole(selectedUser.id, 'COUNTRY', c.code)}
-                                className="bg-stone-950 border border-stone-800 hover:border-coffee/50 p-4 rounded-2xl text-left flex justify-between items-center transition-all group"
+                                className="bg-stone-950 border border-stone-800 hover:border-stone-700/50 p-4 rounded-2xl text-left flex justify-between items-center transition-all group"
                             >
                                 <span className="text-sm font-bold text-stone-300 group-hover:text-white">{c.label} Admin</span>
-                                <Plus size={16} className="text-stone-600 group-hover:text-coffee" />
+                                <Plus size={16} className="text-stone-600 group-hover:text-stone-700" />
                             </button>
                         ))}
                         <button 
                             onClick={() => handleAssignRole(selectedUser.id, 'GLOBAL', '')}
-                            className="bg-coffee/10 border border-coffee/20 hover:border-coffee/50 p-4 rounded-2xl text-left flex justify-between items-center transition-all group mt-2"
+                            className="bg-stone-700/10 border border-stone-700/20 hover:border-stone-700/50 p-4 rounded-2xl text-left flex justify-between items-center transition-all group mt-2"
                         >
-                            <span className="text-sm font-bold text-coffee-400 group-hover:text-coffee">{t.global_admin}</span>
-                            <Plus size={16} className="text-coffee-600" />
+                            <span className="text-sm font-bold text-stone-400 group-hover:text-stone-700">{t.global_admin}</span>
+                            <Plus size={16} className="text-stone-600" />
                         </button>
                     </div>
 
@@ -101,10 +101,10 @@ export function RoleManagementModal({
                                 value={venueSearch}
                                 onChange={(e) => handleSearchVenues(e.target.value)}
                                 placeholder={t.search_venues}
-                                className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50 pl-12"
+                                className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50 pl-12"
                             />
                             <MapPin size={18} className="absolute left-4 top-4 text-stone-600" />
-                            {isSearchingVenues && <Loader2 size={18} className="absolute right-4 top-4 animate-spin text-coffee" />}
+                            {isSearchingVenues && <Loader2 size={18} className="absolute right-4 top-4 animate-spin text-stone-700" />}
                         </div>
 
                         <div className="space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
@@ -112,13 +112,13 @@ export function RoleManagementModal({
                                 <button 
                                     key={v.id}
                                     onClick={() => handleAssignRole(selectedUser.id, 'VENUE', v.id)}
-                                    className="w-full bg-stone-950 border border-stone-800 hover:border-coffee/50 p-3 rounded-2xl text-left flex justify-between items-center transition-all group"
+                                    className="w-full bg-stone-950 border border-stone-800 hover:border-stone-700/50 p-3 rounded-2xl text-left flex justify-between items-center transition-all group"
                                 >
                                     <div className="flex flex-col">
                                         <span className="text-xs font-bold text-stone-300 group-hover:text-white">{v.name}</span>
                                         <span className="text-[8px] text-stone-500 font-bold">{v.city}, {v.address}</span>
                                     </div>
-                                    <Plus size={14} className="text-stone-600 group-hover:text-coffee" />
+                                    <Plus size={14} className="text-stone-600 group-hover:text-stone-700" />
                                 </button>
                             ))}
                         </div>

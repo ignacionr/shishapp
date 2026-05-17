@@ -10,7 +10,8 @@ const SUPPORTED_LANGUAGES = [
   { code: 'pt-BR', label: 'Português' },
   { code: 'ru', label: 'Русский' },
   { code: 'ka', label: 'ქართული' },
-  { code: 'it', label: 'Italiano' }
+  { code: 'it', label: 'Italiano' },
+  { code: 'ar', label: 'العربية' }
 ];
 
 interface VideoEditorModalProps {
@@ -40,7 +41,7 @@ export function VideoEditorModal({
           <div className="space-y-4">
              <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-stone-500 ml-1">{t.language}</label>
-                <select value={currentVideo.language_code} onChange={e => setCurrentVideo({...currentVideo, language_code: e.target.value})} className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50">
+                <select value={currentVideo.language_code} onChange={e => setCurrentVideo({...currentVideo, language_code: e.target.value})} className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50">
                   {SUPPORTED_LANGUAGES.map(l => (<option key={l.code} value={l.code}>{l.label}</option>))}
                 </select>
              </div>
@@ -53,7 +54,7 @@ export function VideoEditorModal({
                 <input type="text" value={currentVideo.title} onChange={e => setCurrentVideo({...currentVideo, title: e.target.value})} placeholder="Title" className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none" />
              </div>
           </div>
-          <button onClick={handleSaveVideo} disabled={isSavingVideo} className="w-full bg-coffee text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
+          <button onClick={handleSaveVideo} disabled={isSavingVideo} className="w-full bg-stone-700 text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
             {isSavingVideo ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
             <span>{t.save_content}</span>
           </button>

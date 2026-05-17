@@ -6,7 +6,7 @@
 #include <drogon/orm/DbClient.h>
 #include <sstream>
 
-namespace shishapp {
+namespace myshisha {
 
 void JournalController::list(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto userId = AuthService::getUserIdFromRequest(req);
@@ -316,4 +316,4 @@ void JournalController::getTags(const HttpRequestPtr& req, std::function<void(co
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

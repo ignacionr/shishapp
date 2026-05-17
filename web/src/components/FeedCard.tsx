@@ -71,7 +71,7 @@ export default function FeedCard({ item, priority, onVideoEnd }: Props) {
       case 'video': return <PlayCircle className="text-white w-20 h-16 short:w-14 drop-shadow-lg" />;
       case 'native_video': return <PlayCircle className="text-white w-20 h-16 short:w-14 drop-shadow-lg" />;
       case 'suggestion': 
-        if (item.id === 'login_cta') return <LogIn className={`text-coffee-600 ${isVeryShort ? 'w-10 h-10' : 'w-16 h-16 short:w-12'}`} />;
+        if (item.id === 'login_cta') return <LogIn className={`text-stone-600 ${isVeryShort ? 'w-10 h-10' : 'w-16 h-16 short:w-12'}`} />;
         return <Wrench className={`text-green-500 ${isVeryShort ? 'w-10 h-10' : 'w-16 h-16 short:w-12'}`} />;
       case 'pwa_install' as any: return <Download className="text-blue-500 w-16 h-16 short:w-12" />;
       default: return null;
@@ -96,12 +96,12 @@ export default function FeedCard({ item, priority, onVideoEnd }: Props) {
                     aria-labelledby="terms-label"
                     className={`mt-1 flex-shrink-0 rounded-md border-2 transition-all flex items-center justify-center ${
                         isVeryShort ? 'w-4 h-4' : 'w-6 h-6 short:w-5 short:h-5'
-                    } ${acceptedTerms ? 'bg-coffee-700 border-coffee-700' : 'border-stone-300 dark:border-stone-700'}`}
+                    } ${acceptedTerms ? 'bg-stone-700 border-stone-700' : 'border-stone-300 dark:border-stone-700'}`}
                 >
                     {acceptedTerms && <CheckCircle2 size={isVeryShort ? 10 : 12} className="text-white" />}
                 </button>
                 <p id="terms-label" className={`text-stone-500 dark:text-stone-400 leading-tight font-bold ${isVeryShort ? 'text-[10px]' : 'text-[10px]'}`}>
-                    {t.agree} <Link href="/terms" className="text-coffee-700 dark:text-coffee-400 underline">{t.terms}</Link> {t.and} <Link href="/privacy" className="text-coffee-700 dark:text-coffee-400 underline">{t.privacy}</Link>.
+                    {t.agree} <Link href="/terms" className="text-stone-700 dark:text-stone-400 underline">{t.terms}</Link> {t.and} <Link href="/privacy" className="text-stone-700 dark:text-stone-400 underline">{t.privacy}</Link>.
                 </p>
             </div>
 
@@ -137,7 +137,7 @@ export default function FeedCard({ item, priority, onVideoEnd }: Props) {
         />
         <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 flex flex-col justify-end p-8 short:p-6 ${isVeryShort ? 'p-4 pb-8' : 'pb-24 short:pb-20'}`}>
           <div className="mb-4 short:mb-2">
-             <span className="bg-coffee/80 text-white px-3 py-1 rounded-full text-[10px] short:text-[8px] font-black uppercase tracking-widest backdrop-blur-md border border-white/10">Feature</span>
+             <span className="bg-stone-700/80 text-white px-3 py-1 rounded-full text-[10px] short:text-[8px] font-black uppercase tracking-widest backdrop-blur-md border border-white/10">Feature</span>
           </div>
           <h2 className={`font-black text-white leading-tight drop-shadow-2xl ${isVeryShort ? 'text-xl mb-3' : 'text-4xl short:text-2xl mb-8 short:mb-4'}`}>{item.title}</h2>
           
@@ -244,7 +244,7 @@ export default function FeedCard({ item, priority, onVideoEnd }: Props) {
         <div className={`flex w-full ${isVeryShort ? 'justify-start pl-28' : 'justify-center'}`}>
           <Link 
             href={item.destination}
-            className={`bg-coffee text-white font-black flex items-center space-x-2 shadow-2xl active:scale-95 transition-all ${isVeryShort ? 'py-2 px-4 rounded-full text-xs' : 'px-10 py-5 short:px-6 short:py-3 rounded-full text-xl short:text-sm'}`}
+            className={`bg-stone-700 text-white font-black flex items-center space-x-2 shadow-2xl active:scale-95 transition-all ${isVeryShort ? 'py-2 px-4 rounded-full text-xs' : 'px-10 py-5 short:px-6 short:py-3 rounded-full text-xl short:text-sm'}`}
           >
             <span>{t.view_item}</span>
             <ArrowRight size={isVeryShort ? 14 : 24} strokeWidth={3} />

@@ -4,7 +4,7 @@
 #include <optional>
 #include <glaze/glaze.hpp>
 
-namespace shishapp {
+namespace myshisha {
 
 struct UserMastery {
     double total_score = 0;
@@ -257,4 +257,4 @@ struct CountryTagConfig {
     std::vector<ContextTagSelection> tags;
 };
 
-} // namespace shishapp
+} // namespace myshisha

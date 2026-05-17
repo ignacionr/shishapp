@@ -15,15 +15,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Shishapp | Your personal shisha companion",
-    template: "%s | Shishapp"
+    default: "MyShisha.vip | Your personal shisha companion",
+    template: "%s | MyShisha.vip"
   },
-  description: "Shishapp is your personal shisha journal and session companion. Track your sensory experiences, manage equipment, and master session methods.",
+  description: "MyShisha.vip is your personal shisha journal and session companion. Track your sensory experiences, manage equipment, and master session methods.",
   keywords: ["shisha", "session", "journal", "hookah", "shisha tracking", "sensory journal"],
   manifest: "/manifest.json",
-  authors: [{ name: "Shishapp Team" }],
-  creator: "Shishapp",
-  publisher: "Shishapp",
+  authors: [{ name: "MyShisha.vip Team" }],
+  creator: "MyShisha.vip",
+  publisher: "MyShisha.vip",
   formatDetection: {
     email: false,
     address: false,
@@ -32,30 +32,30 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://shishapp.com",
-    siteName: "Shishapp",
-    title: "Shishapp | Your personal shisha companion",
-    description: "Track your sensory shisha experiences and master your shisha gear with Shishapp.",
+    url: "https://myshisha.vip",
+    siteName: "MyShisha.vip",
+    title: "MyShisha.vip | Your personal shisha companion",
+    description: "Track your sensory shisha experiences and master your shisha gear with MyShisha.vip.",
     images: [
       {
         url: "/static/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Shishapp - Shisha Journaling & Sessions",
+        alt: "MyShisha.vip - Shisha Journaling & Sessions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shishapp | Your personal shisha companion",
-    description: "Track your sensory shisha experiences and master your shisha gear with Shishapp.",
+    title: "MyShisha.vip | Your personal shisha companion",
+    description: "Track your sensory shisha experiences and master your shisha gear with MyShisha.vip.",
     images: ["/static/images/og-image.png"],
-    creator: "@shishapp",
+    creator: "@myshisha",
   },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Shishapp",
+    title: "MyShisha.vip",
   },
   other: {
     "google-site-verification": "TODO-if-needed",

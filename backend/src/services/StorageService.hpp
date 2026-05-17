@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <vector>
 
-namespace shishapp {
+namespace myshisha {
 
 class StorageService {
 private:
@@ -146,4 +146,4 @@ public:
     }
 };
 
-} // namespace shishapp
+} // namespace myshisha

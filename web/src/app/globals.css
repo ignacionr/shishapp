@@ -6,7 +6,7 @@
   --color-smoke-700: #1a1a1a;
   --color-smoke-900: #0f0f0f;
   --color-brand-amber: #d2691e;
-  --color-coffee: var(--color-smoke-700);
+  --color-stone-700: var(--color-smoke-700);
 }
 
 :root {

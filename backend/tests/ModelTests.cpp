@@ -4,20 +4,20 @@
 #include <glaze/glaze.hpp>
 #include <drogon/HttpRequest.h>
 
-using namespace shishapp;
+using namespace myshisha;
 
 TEST(AuthServiceTest, TokenExtraction) {
     auto req = drogon::HttpRequest::newHttpRequest();
     
     // 1. Test valid Authorization header
-    req->addHeader("Authorization", "Bearer simulated_shishapp_jwt_user123");
+    req->addHeader("Authorization", "Bearer simulated_myshisha_jwt_user123");
     auto id = AuthService::getUserIdFromRequest(req);
     EXPECT_TRUE(id.has_value());
     EXPECT_EQ(*id, "user123");
 
     // 2. Test valid custom header
     auto req2 = drogon::HttpRequest::newHttpRequest();
-    req2->addHeader("X-Shishapp-Token", "simulated_shishapp_jwt_user456");
+    req2->addHeader("X-MyShisha.vip-Token", "simulated_myshisha_jwt_user456");
     auto id2 = AuthService::getUserIdFromRequest(req2);
     EXPECT_TRUE(id2.has_value());
     EXPECT_EQ(*id2, "user456");

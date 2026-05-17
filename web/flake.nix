@@ -11,8 +11,8 @@
       let
         pkgs = import nixpkgs { inherit system; };
         
-        shishapp-web = pkgs.stdenv.mkDerivation {
-          pname = "shishapp-web";
+        myshisha-web = pkgs.stdenv.mkDerivation {
+          pname = "myshisha-web";
           version = "1.0.0";
           src = ./.;
           
@@ -31,7 +31,7 @@
         };
       in
       {
-        packages.default = shishapp-web;
+        packages.default = myshisha-web;
         
         devShells.default = pkgs.mkShell {
           buildInputs = [

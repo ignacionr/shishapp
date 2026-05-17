@@ -2,7 +2,7 @@
 #include "models/models.hpp"
 #include <glaze/glaze.hpp>
 
-using namespace shishapp;
+using namespace myshisha;
 
 TEST(TagModelTest, TagSerialization) {
     FullTag t;

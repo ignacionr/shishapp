@@ -21,7 +21,7 @@ export default function JourneyPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex items-center justify-center p-6 text-center">
-        <Loader2 className="text-coffee animate-spin" size={48} />
+        <Loader2 className="text-stone-700 animate-spin" size={48} />
       </div>
     }>
       <JourneyContent />
@@ -327,7 +327,7 @@ function JourneyContent() {
         <button 
           onClick={handleAddEntry}
           aria-label={t.add_entry}
-          className="bg-coffee text-white p-3 rounded-full shadow-xl active:scale-90 transition-transform"
+          className="bg-stone-700 text-white p-3 rounded-full shadow-xl active:scale-90 transition-transform"
         >
           <Plus size={24} />
         </button>
@@ -335,7 +335,7 @@ function JourneyContent() {
 
       {/* Month/Year Filter Header */}
       <div className="flex items-center justify-between bg-white dark:bg-stone-900 p-4 rounded-3xl mb-8 border border-stone-100 dark:border-stone-800 shadow-sm">
-         <button onClick={() => changeMonth(-1)} className="p-2 text-stone-400 hover:text-coffee transition-colors">
+         <button onClick={() => changeMonth(-1)} className="p-2 text-stone-400 hover:text-stone-700 transition-colors">
             <ChevronLeft size={24} />
          </button>
          <div className="text-center">
@@ -344,7 +344,7 @@ function JourneyContent() {
                {selectedDate.toLocaleString(lang === 'es-419' ? 'es-ES' : lang, { month: 'long' })} {selectedDate.getFullYear()}
             </p>
          </div>
-         <button onClick={() => changeMonth(1)} className="p-2 text-stone-400 hover:text-coffee transition-colors">
+         <button onClick={() => changeMonth(1)} className="p-2 text-stone-400 hover:text-stone-700 transition-colors">
             <ChevronRight size={24} />
          </button>
       </div>
@@ -370,7 +370,7 @@ function JourneyContent() {
                     <button 
                       onClick={() => handleEditEntry(entry)}
                       aria-label="Edit entry"
-                      className="p-2.5 text-stone-400 hover:text-coffee hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-colors"
+                      className="p-2.5 text-stone-400 hover:text-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-colors"
                     >
                       <Edit2 size={18} />
                     </button>
@@ -403,17 +403,17 @@ function JourneyContent() {
                 </span>
               )}
               {entry.tags.map(tag => (
-                <span key={tag} className="text-[10px] font-bold uppercase tracking-wider bg-coffee/5 text-coffee-700 dark:text-coffee-300 px-2 py-1 rounded-md border border-coffee/20">
+                <span key={tag} className="text-[10px] font-bold uppercase tracking-wider bg-stone-700/5 text-stone-700 dark:text-stone-300 px-2 py-1 rounded-md border border-stone-700/20">
                   {(t as any)[tag] || tag}
                 </span>
               ))}
             </div>
 
             {isGuest && entry.user_id === 'guest' && (
-              <div className="mt-6 p-4 bg-coffee/5 border border-coffee/10 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="mt-6 p-4 bg-stone-700/5 border border-stone-700/10 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-start space-x-3">
-                  <div className="bg-coffee/10 p-2 rounded-lg mt-0.5">
-                    <LogIn size={16} className="text-coffee" />
+                  <div className="bg-stone-700/10 p-2 rounded-lg mt-0.5">
+                    <LogIn size={16} className="text-stone-700" />
                   </div>
                   <div>
                     <p className="text-xs text-stone-900 dark:text-stone-100 font-bold">{t.claim_checkin}</p>
@@ -422,7 +422,7 @@ function JourneyContent() {
                 </div>
                 <button 
                   onClick={() => router.push('/login')}
-                  className="bg-coffee text-white px-6 py-2 rounded-full text-xs font-bold whitespace-nowrap active:scale-95 transition-transform"
+                  className="bg-stone-700 text-white px-6 py-2 rounded-full text-xs font-bold whitespace-nowrap active:scale-95 transition-transform"
                 >
                   {t.login}
                 </button>
@@ -437,7 +437,7 @@ function JourneyContent() {
             <p className="text-stone-600 dark:text-stone-400 mb-6 max-w-xs font-medium">{t.empty_journey}</p>
             <button 
               onClick={handleAddEntry}
-              className="bg-coffee text-white px-8 py-3 rounded-full font-bold shadow-xl active:scale-95 transition-transform"
+              className="bg-stone-700 text-white px-8 py-3 rounded-full font-bold shadow-xl active:scale-95 transition-transform"
             >
               {t.add_first}
             </button>
@@ -461,15 +461,15 @@ function JourneyContent() {
               {/* Coffee Name */}
               {!hasMenu && (
                 <div className="space-y-3 short:space-y-2">
-                  <label className="text-xs short:text-[10px] font-black uppercase tracking-widest text-stone-500 ml-1">{t.what_brewing}</label>
+                  <label className="text-xs short:text-[10px] font-black uppercase tracking-widest text-stone-500 ml-1">{t.what_session}</label>
                   <input 
                     required
                     autoFocus
                     type="text" 
                     value={newEntry.coffee_name}
                     onChange={e => setNewEntry({...newEntry, coffee_name: e.target.value})}
-                    placeholder={t.coffee_origin_placeholder}
-                    className="w-full bg-stone-900 border border-stone-800 text-white p-5 short:p-4 rounded-3xl short:rounded-2xl text-lg short:text-base font-bold focus:ring-2 focus:ring-coffee/50 outline-none transition-all"
+                    placeholder={t.shisha_origin_placeholder}
+                    className="w-full bg-stone-900 border border-stone-800 text-white p-5 short:p-4 rounded-3xl short:rounded-2xl text-lg short:text-base font-bold focus:ring-2 focus:ring-stone-700/50 outline-none transition-all"
                   />
                 </div>
               )}
@@ -519,7 +519,7 @@ function JourneyContent() {
                      type="button"
                      onClick={() => setNewEntry({...newEntry, location: 'Home'})}
                      className={`flex items-center justify-center space-x-2 py-3 short:py-2 rounded-2xl short:rounded-xl font-bold transition-all ${
-                       newEntry.location === 'Home' ? 'bg-coffee text-white shadow-lg' : 'text-stone-500'
+                       newEntry.location === 'Home' ? 'bg-stone-700 text-white shadow-lg' : 'text-stone-500'
                      }`}
                    >
                      <HomeIcon size={18} className="short:w-4 short:h-4" />
@@ -529,7 +529,7 @@ function JourneyContent() {
                      type="button"
                      onClick={() => setNewEntry({...newEntry, location: 'Coffee Shop'})}
                      className={`flex items-center justify-center space-x-2 py-3 short:py-2 rounded-2xl short:rounded-xl font-bold transition-all ${
-                       newEntry.location === 'Coffee Shop' ? 'bg-coffee text-white shadow-lg' : 'text-stone-500'
+                       newEntry.location === 'Coffee Shop' ? 'bg-stone-700 text-white shadow-lg' : 'text-stone-500'
                      }`}
                    >
                      <CafeIcon size={18} className="short:w-4 short:h-4" />
@@ -542,7 +542,7 @@ function JourneyContent() {
               <div className="space-y-4 short:space-y-2">
                 <div className="flex justify-between items-center px-1">
                   <label className="text-xs short:text-[10px] font-black uppercase tracking-widest text-stone-500">{t.rating}</label>
-                  <span className="text-2xl short:text-xl font-black text-coffee">{newEntry.rating?.toFixed(1)}</span>
+                  <span className="text-2xl short:text-xl font-black text-stone-700">{newEntry.rating?.toFixed(1)}</span>
                 </div>
                 <input 
                   type="range"
@@ -551,7 +551,7 @@ function JourneyContent() {
                   step="0.5"
                   value={newEntry.rating}
                   onChange={e => setNewEntry({...newEntry, rating: parseFloat(e.target.value)})}
-                  className="w-full h-2 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-coffee"
+                  className="w-full h-2 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-stone-700"
                 />
                 <div className="flex justify-between text-[10px] font-black text-stone-600 uppercase tracking-tighter text-center">
                    <span className="w-20 text-left">{t.avoid}</span>
@@ -676,7 +676,7 @@ function JourneyContent() {
               <button 
                 disabled={isLoading}
                 type="submit"
-                className="w-full bg-coffee text-white py-6 short:py-4 rounded-3xl short:rounded-2xl font-black text-xl short:text-lg shadow-2xl active:scale-[0.98] transition-all flex items-center justify-center space-x-3 sticky bottom-4 z-20"
+                className="w-full bg-stone-700 text-white py-6 short:py-4 rounded-3xl short:rounded-2xl font-black text-xl short:text-lg shadow-2xl active:scale-[0.98] transition-all flex items-center justify-center space-x-3 sticky bottom-4 z-20"
               >
                 {isLoading ? <Loader2 className="animate-spin" /> : (
                   <>

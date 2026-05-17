@@ -16,7 +16,8 @@ const SUPPORTED_LANGUAGES = [
   { code: 'pt-BR', label: 'Português' },
   { code: 'ru', label: 'Русский' },
   { code: 'ka', label: 'ქართული' },
-  { code: 'it', label: 'Italiano' }
+  { code: 'it', label: 'Italiano' },
+  { code: 'ar', label: 'العربية' }
 ];
 
 const COUNTRIES = [
@@ -109,7 +110,7 @@ export function EquipmentEditorModal({
              <div className="bg-stone-950/30 p-4 rounded-3xl border border-stone-800/50 space-y-4">
                 <button 
                     onClick={() => setShowAddLinkInEquipment(!showAddLinkInEquipment)}
-                    className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-coffee-400 hover:text-coffee transition-colors"
+                    className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-stone-400 hover:text-stone-700 transition-colors"
                 >
                     {showAddLinkInEquipment ? <X size={14} /> : <Plus size={14} />}
                     <span>{showAddLinkInEquipment ? t.cancel_link_btn : t.add_link_btn}</span>
@@ -172,7 +173,7 @@ export function EquipmentEditorModal({
                             <button 
                                 key={l.code}
                                 onClick={() => setEditingLang(l.code)}
-                                className={cn("px-2 py-1 rounded-lg text-[10px] font-black transition-all", editingLang === l.code ? "bg-coffee text-white" : "text-stone-600 hover:text-stone-400")}
+                                className={cn("px-2 py-1 rounded-lg text-[10px] font-black transition-all", editingLang === l.code ? "bg-stone-700 text-white" : "text-stone-600 hover:text-stone-400")}
                             >
                                 {l.code.toUpperCase()}
                             </button>
@@ -212,7 +213,7 @@ export function EquipmentEditorModal({
              </div>
           </div>
 
-          <button onClick={handleSaveEquipment} disabled={isSavingEquipment} className="w-full bg-coffee text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
+          <button onClick={handleSaveEquipment} disabled={isSavingEquipment} className="w-full bg-stone-700 text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
             {isSavingEquipment ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
             <span>{t.save_catalog_item}</span>
           </button>

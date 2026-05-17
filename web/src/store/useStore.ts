@@ -78,10 +78,9 @@ export const useStore = create<AppState>()(
           // Reset personal data on logout
           // Proactively set guest language from browser to avoid English flicker
           const browserLang = typeof navigator !== 'undefined' ? navigator.language.split('-')[0] : 'en';
-          const mappedLang: any = ['es', 'pt', 'ru', 'ka', 'it'].includes(browserLang) 
+          const mappedLang: any = ['es', 'pt', 'ru', 'ka', 'it', 'ar'].includes(browserLang)
             ? (browserLang === 'es' ? 'es-419' : browserLang === 'pt' ? 'pt-BR' : browserLang)
             : 'en';
-
           return { 
             user: { id: 'guest', name: 'Guest', email: '', country: 'WW', language: mappedLang }, 
             isGuest: true, 
@@ -199,7 +198,7 @@ export const useStore = create<AppState>()(
       }),
     }),
     {
-      name: 'shishapp-storage',
+      name: 'myshisha-storage',
       version: 6, 
       partialize: (state) => ({ 
         journals: state.journals, 

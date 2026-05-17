@@ -21,7 +21,7 @@ export default function NavigationBar() {
     { label: t.home, icon: Home, href: '/' },
     { label: t.journey, icon: BookOpen, href: '/journey' },
     { label: t.brewing, icon: Coffee, href: '/brewing' },
-    { label: t.coffee_bar, icon: Layout, href: '/equipment' },
+    { label: t.shisha_bar, icon: Layout, href: '/equipment' },
     { label: t.search, icon: Search, href: '/search' },
     { label: isGuest ? t.login : t.profile, icon: User, href: '/login' },
   ];
@@ -39,7 +39,7 @@ export default function NavigationBar() {
               href={item.href}
               className={cn(
                 "flex flex-col items-center justify-center space-y-1 transition-colors",
-                isActive ? "text-coffee-700 dark:text-coffee-300" : "text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200"
+                isActive ? "text-stone-700 dark:text-stone-300" : "text-stone-600 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200"
               )}
             >
               <Icon size={24} />

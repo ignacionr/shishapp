@@ -38,7 +38,7 @@ export function ShortLinksManagement({
                   value={shortLinkSearch}
                   onChange={(e) => setShortLinkSearch(e.target.value)}
                   placeholder="Search codes..."
-                  className="w-full bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 rounded-2xl py-2 px-4 pl-10 text-sm font-bold outline-none focus:ring-2 focus:ring-coffee/20"
+                  className="w-full bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 rounded-2xl py-2 px-4 pl-10 text-sm font-bold outline-none focus:ring-2 focus:ring-stone-700/20"
               />
               <Globe size={16} className="absolute left-3 top-2.5 text-stone-400" />
            </div>
@@ -51,7 +51,7 @@ export function ShortLinksManagement({
               </button>
               <button 
               onClick={() => setShowScanner(true)}
-              className="bg-coffee text-white px-6 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg flex items-center space-x-2 active:scale-95 transition-all"
+              className="bg-stone-700 text-white px-6 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg flex items-center space-x-2 active:scale-95 transition-all"
               >
               <Camera size={16} />
               <span>{t.scan_qr}</span>
@@ -64,7 +64,7 @@ export function ShortLinksManagement({
             <div key={sl.id} className="bg-white dark:bg-stone-900 p-6 rounded-[32px] border border-stone-100 dark:border-stone-800 shadow-sm flex flex-col space-y-4">
                <div className="flex justify-between items-start">
                   <div className="bg-stone-50 dark:bg-stone-950 px-3 py-1.5 rounded-xl border border-stone-100 dark:border-stone-800">
-                     <span className="text-xs font-black text-coffee-700 dark:text-coffee-400">/dl/{sl.code}</span>
+                     <span className="text-xs font-black text-stone-700 dark:text-stone-400">/dl/{sl.code}</span>
                   </div>
                   <span className="text-[10px] text-stone-400 font-bold">{sl.created_at?.split(' ')[0]}</span>
                </div>
@@ -75,7 +75,7 @@ export function ShortLinksManagement({
                <div className="flex items-center space-x-2 pt-2 border-t border-stone-50 dark:border-stone-800">
                   <button 
                     onClick={() => { setSelectedShortLink(sl); setIsAssigningVenue(true); }}
-                    className="flex-1 bg-stone-50 dark:bg-stone-800 text-stone-600 dark:text-stone-300 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-coffee/10 hover:text-coffee transition-all"
+                    className="flex-1 bg-stone-50 dark:bg-stone-800 text-stone-600 dark:text-stone-300 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-stone-700/10 hover:text-stone-700 transition-all"
                   >
                     {t.assign_to_venue}
                   </button>

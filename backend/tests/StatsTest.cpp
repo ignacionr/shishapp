@@ -5,7 +5,7 @@
 #include <glaze/glaze.hpp>
 #include <future>
 
-using namespace shishapp;
+using namespace myshisha;
 
 class StatsTest : public ::testing::Test {
 protected:

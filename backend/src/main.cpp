@@ -4,7 +4,7 @@
 #include "controllers/VenueAdminController.hpp"
 
 int main() {
-    std::cout << "Starting Shishapp Backend..." << std::endl;
+    std::cout << "Starting MyShisha.vip Backend..." << std::endl;
 
     // Load configuration
     try {
@@ -18,7 +18,7 @@ int main() {
     // Initialize database client directly
     // This is the ONLY method that currently works with our Nix-built Drogon
     // Note: host=127.0.0.1 forces TCP, which uses 'trust' auth as configured in pg_hba.conf
-    std::string connStr = "host=127.0.0.1 port=5432 dbname=shishapp user=inz client_encoding=UTF8";
+    std::string connStr = "host=127.0.0.1 port=5432 dbname=myshisha user=inz client_encoding=UTF8";
     auto db = drogon::orm::DbClient::newPgClient(connStr, 5, "default");
     
     if (!db) {
@@ -29,8 +29,8 @@ int main() {
     std::cout << "Database client initialized and registered as 'default'." << std::endl;
 
     // Explicitly add listener to ensure we match Cloudflare origin configuration
-    std::cout << "Adding listener on 0.0.0.0:8080" << std::endl;
-    drogon::app().addListener("0.0.0.0", 8080);
+    std::cout << "Adding listener on 0.0.0.0:8100" << std::endl;
+    drogon::app().addListener("0.0.0.0", 8100);
 
     // SPA Routing & Pretty URLs Handler
     drogon::app().registerPreRoutingAdvice([](const drogon::HttpRequestPtr &req, drogon::AdviceCallback &&acb, drogon::AdviceChainCallback &&accb) {

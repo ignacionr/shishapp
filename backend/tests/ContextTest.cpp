@@ -2,11 +2,11 @@
 #include "../src/services/ContextService.hpp"
 #include <drogon/HttpRequest.h>
 
-using namespace shishapp;
+using namespace myshisha;
 
 TEST(ContextServiceTest, GetLanguageFromExplicitHeader) {
     auto req = drogon::HttpRequest::newHttpRequest();
-    req->addHeader("X-Shishapp-Language", "pt-BR");
+    req->addHeader("X-MyShisha.vip-Language", "pt-BR");
     
     EXPECT_EQ(ContextService::getLanguage(req), "pt-BR");
 }
@@ -31,6 +31,11 @@ TEST(ContextServiceTest, GetLanguageFromAcceptLanguage) {
     auto reqKa = drogon::HttpRequest::newHttpRequest();
     reqKa->addHeader("Accept-Language", "ka-GE,ka;q=0.9");
     EXPECT_EQ(ContextService::getLanguage(reqKa), "ka");
+
+    // Arabic
+    auto reqAr = drogon::HttpRequest::newHttpRequest();
+    reqAr->addHeader("Accept-Language", "ar-SA,ar;q=0.9");
+    EXPECT_EQ(ContextService::getLanguage(reqAr), "ar");
 }
 
 TEST(ContextServiceTest, GetLanguageFromCountryFallback) {
@@ -41,6 +46,18 @@ TEST(ContextServiceTest, GetLanguageFromCountryFallback) {
     auto reqBr = drogon::HttpRequest::newHttpRequest();
     reqBr->addHeader("CF-IPCountry", "BR");
     EXPECT_EQ(ContextService::getLanguage(reqBr), "pt-BR");
+
+    auto reqSa = drogon::HttpRequest::newHttpRequest();
+    reqSa->addHeader("CF-IPCountry", "SA");
+    EXPECT_EQ(ContextService::getLanguage(reqSa), "ar");
+
+    auto reqAe = drogon::HttpRequest::newHttpRequest();
+    reqAe->addHeader("CF-IPCountry", "AE");
+    EXPECT_EQ(ContextService::getLanguage(reqAe), "ar");
+
+    auto reqEg = drogon::HttpRequest::newHttpRequest();
+    reqEg->addHeader("CF-IPCountry", "EG");
+    EXPECT_EQ(ContextService::getLanguage(reqEg), "ar");
 }
 
 TEST(ContextServiceTest, DefaultToEnglish) {

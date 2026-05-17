@@ -1,4 +1,4 @@
-# Shishapp - Application Goals
+# MyShisha.vip - Application Goals
 
 ## 1. Learning Journey
 Help users advance their shisha knowledge through interactive content.

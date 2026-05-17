@@ -1,7 +1,7 @@
 #include "VenueService.hpp"
 #include <algorithm>
 
-namespace shishapp {
+namespace myshisha {
 
 void VenueService::listVenues(const std::vector<std::string>& allowedCountries, bool isGlobal,
                              std::function<void(std::vector<Venue>)>&& successCallback,
@@ -218,4 +218,4 @@ void VenueService::setVenueTags(const std::string& venueId, const std::vector<Co
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

@@ -1,7 +1,7 @@
-# Shishapp
+# MyShisha.vip
 > Your ultimate shisha companion.
 
-Shishapp is a dedicated platform for shisha lovers, designed to augment your sessions through journaling, equipment management, and lounge discovery.
+MyShisha.vip is a dedicated platform for shisha lovers, designed to augment your sessions through journaling, equipment management, and lounge discovery.
 
 ## Features
 - **Session Setup**: Step-by-step guides for different bowls and packing techniques.

@@ -2,7 +2,7 @@
 #include "services/AuthService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace shishapp {
+namespace myshisha {
 
 void AdminTagController::listAll(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     AuthService::hasAdminAccess(req, [callback](bool isAdmin) {
@@ -131,4 +131,4 @@ void AdminTagController::setCountryTags(const HttpRequestPtr& req, std::function
     });
 }
 
-} // namespace shishapp
+} // namespace myshisha

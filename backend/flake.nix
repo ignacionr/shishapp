@@ -20,8 +20,8 @@
           cmakeFlags = (old.cmakeFlags or []) ++ [ "-DBUILD_SHARED_LIBS=ON" ];
         });
 
-        shishapp-backend = pkgs.stdenv.mkDerivation {
-          pname = "shishapp-backend";
+        myshisha-backend = pkgs.stdenv.mkDerivation {
+          pname = "myshisha-backend";
           version = "1.0.0";
           src = ./.;
 
@@ -54,15 +54,15 @@
 
           installPhase = ''
             mkdir -p $out/bin
-            cp bin/shishapp-backend $out/bin/
+            cp bin/myshisha-backend $out/bin/
           '';
         };
 
         dockerImage = pkgs.dockerTools.buildImage {
-          name = "shishapp-backend";
+          name = "myshisha-backend";
           tag = "latest";
           contents = [
-            shishapp-backend
+            myshisha-backend
             pkgs.cacert
             pkgs.sqlite
             pkgs.postgresql.lib
@@ -71,14 +71,14 @@
             pkgs.openssl
           ];
           config = {
-            Cmd = [ "${shishapp-backend}/bin/shishapp-backend" ];
-            WorkingDir = "/opt/shishapp";
+            Cmd = [ "${myshisha-backend}/bin/myshisha-backend" ];
+            WorkingDir = "/opt/myshisha";
             ExposedPorts = { "8080/tcp" = {}; };
           };
         };
       in
       {
-        packages.default = shishapp-backend;
+        packages.default = myshisha-backend;
         packages.dockerImage = dockerImage;
         
         devShells.default = pkgs.mkShell {

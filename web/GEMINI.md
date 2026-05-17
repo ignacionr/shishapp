@@ -1,4 +1,4 @@
-# Project Context: Web (Shishapp)
+# Project Context: Web (MyShisha.vip)
 
 ## Foundational Mandates
 - Refer to the root **GEMINI.md** and **PLAN.md** for the adaptation strategy.

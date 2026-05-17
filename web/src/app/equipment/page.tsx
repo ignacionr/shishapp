@@ -163,7 +163,7 @@ function EquipmentContent() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 p-6 pb-24 text-stone-900 dark:text-stone-100">
-      <h1 className="text-3xl font-black mb-8">{t.coffee_bar}</h1>
+      <h1 className="text-3xl font-black mb-8">{t.shisha_bar}</h1>
 
       {/* Segmented Control */}
       <div className="bg-stone-200 dark:bg-stone-900 p-1 rounded-2xl flex mb-8 max-w-md overflow-x-auto no-scrollbar">
@@ -177,7 +177,7 @@ function EquipmentContent() {
           )}
         >
           <Layout size={16} className="mr-2" />
-          {t.coffee_bar}
+          {t.shisha_bar}
         </button>
         <button
           onClick={() => setActiveTab('gear')}
@@ -252,7 +252,7 @@ function EquipmentContent() {
           </p>
           <button 
             onClick={() => setActiveTab('gear')}
-            className="bg-coffee text-white px-8 py-3 rounded-xl font-bold shadow-lg"
+            className="bg-stone-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg"
           >
             {t.explore_gear}
           </button>
@@ -292,7 +292,7 @@ function EquipmentContent() {
             
             <div className="p-8">
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm font-bold text-coffee-700 dark:text-coffee-300 uppercase tracking-widest">{(t as any)[selectedItem.category] || selectedItem.category}</p>
+                <p className="text-sm font-bold text-stone-700 dark:text-stone-300 uppercase tracking-widest">{(t as any)[selectedItem.category] || selectedItem.category}</p>
                 {!CONSUMABLE_CATEGORIES.includes(selectedItem.category) && selectedItem.isOwned && (
                   <span className="bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-400 text-[10px] font-black px-2 py-1 rounded-md uppercase border border-green-200 dark:border-green-800">{t.own_this}</span>
                 )}
@@ -307,7 +307,7 @@ function EquipmentContent() {
                 className={`w-full py-5 rounded-2xl font-black transition-all mb-4 text-lg ${
                   selectedItem.isOwned 
                   ? 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700' 
-                  : 'bg-coffee text-white shadow-xl active:scale-[0.98]'
+                  : 'bg-stone-700 text-white shadow-xl active:scale-[0.98]'
                 }`}
               >
                 {selectedItem.isOwned 
@@ -331,7 +331,7 @@ function EquipmentContent() {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full flex items-center justify-between p-4 bg-stone-50 dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 hover:border-coffee transition-colors shadow-sm"
+                            className="w-full flex items-center justify-between p-4 bg-stone-50 dark:bg-stone-900 rounded-xl border border-stone-200 dark:border-stone-800 hover:border-stone-700 transition-colors shadow-sm"
                           >
                             <div className="flex flex-col text-left">
                               <span className="font-bold text-sm dark:text-stone-200">{link.description}</span>
@@ -339,7 +339,7 @@ function EquipmentContent() {
                                 {link.countryCode === 'WW' ? t.worldwide : link.countryCode} {t.delivery} {link.price > 0 ? `• ${getCurrencySymbol(link.countryCode)}${link.price}` : ''}
                               </span>
                             </div>
-                            <ShoppingCart size={22} className="text-coffee-700 dark:text-coffee-300" />
+                            <ShoppingCart size={22} className="text-stone-700 dark:text-stone-300" />
                           </a>
                         ))
                       }

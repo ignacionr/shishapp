@@ -55,9 +55,9 @@ export function LineGraph({ data, mode = 'count' }: LineGraphProps) {
               </g>
             ))}
 
-            <path d={path} fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-coffee" />
+            <path d={path} fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-stone-700" />
             {points.map((p, i) => (
-                <circle key={i} cx={p.x} cy={p.y} r="4" fill="currentColor" className="text-coffee" />
+                <circle key={i} cx={p.x} cy={p.y} r="4" fill="currentColor" className="text-stone-700" />
             ))}
         </svg>
         <div className="flex justify-between px-1">

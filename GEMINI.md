@@ -1,6 +1,6 @@
-# Shishapp - Developer Context
+# MyShisha.vip - Developer Context
 
-You are assisting in the development of **Shishapp**, a platform for shisha lovers to journal sessions, discover lounges, and manage equipment.
+You are assisting in the development of **MyShisha.vip**, a platform for shisha lovers to journal sessions, discover lounges, and manage equipment.
 
 ## Origins
 This project was forked from `viditacafe` and adapted for the shisha domain.

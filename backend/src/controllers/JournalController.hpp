@@ -3,7 +3,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class JournalController : public drogon::HttpController<JournalController> {
 public:
@@ -29,4 +29,4 @@ public:
     void getTags(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback);
 };
 
-} // namespace shishapp
+} // namespace myshisha

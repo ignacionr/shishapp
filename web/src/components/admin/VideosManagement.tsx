@@ -10,7 +10,8 @@ const SUPPORTED_LANGUAGES = [
   { code: 'pt-BR', label: 'Português' },
   { code: 'ru', label: 'Русский' },
   { code: 'ka', label: 'ქართული' },
-  { code: 'it', label: 'Italiano' }
+  { code: 'it', label: 'Italiano' },
+  { code: 'ar', label: 'العربية' }
 ];
 
 interface VideosManagementProps {
@@ -43,7 +44,7 @@ export function VideosManagement({
              <select 
                value={filterLang}
                onChange={(e) => setFilterLang(e.target.value)}
-               className="bg-stone-200 dark:bg-stone-800 text-[10px] font-black uppercase px-3 py-1 rounded-full outline-none focus:ring-1 focus:ring-coffee/30"
+               className="bg-stone-200 dark:bg-stone-800 text-[10px] font-black uppercase px-3 py-1 rounded-full outline-none focus:ring-1 focus:ring-stone-700/30"
              >
                <option value="all">{t.all_languages}</option>
                {SUPPORTED_LANGUAGES.map(l => (
@@ -53,7 +54,7 @@ export function VideosManagement({
           </div>
           <button 
             onClick={() => { setCurrentVideo({ slug: '', title: '', description: '', language_code: 'en' }); setIsEditingVideo(true); }}
-            className="bg-coffee text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
+            className="bg-stone-700 text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
           >
             <Plus size={20} />
           </button>
@@ -74,7 +75,7 @@ export function VideosManagement({
                   <p className="text-[10px] text-stone-500 font-black uppercase tracking-widest truncate">{v.slug}</p>
                </div>
                <div className="flex items-center space-x-1">
-                  <button onClick={() => { setCurrentVideo(v); setIsEditingVideo(true); }} className="p-2 text-stone-400 hover:text-coffee transition-colors"><Edit3 size={16} /></button>
+                  <button onClick={() => { setCurrentVideo(v); setIsEditingVideo(true); }} className="p-2 text-stone-400 hover:text-stone-700 transition-colors"><Edit3 size={16} /></button>
                   <button onClick={() => handleDeleteVideo(v.id)} className="p-2 text-stone-400 hover:text-red-500 transition-colors"><Trash2 size={16} /></button>
                </div>
             </div>

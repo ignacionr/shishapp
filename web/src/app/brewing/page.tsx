@@ -278,8 +278,8 @@ export default function BrewingPage() {
                 }`}
               >
                 <div className="flex items-center space-x-4">
-                   <div className="bg-coffee/10 p-2 rounded-lg">
-                     <Coffee className="text-coffee-700 dark:text-coffee-300" size={20} />
+                   <div className="bg-stone-700/10 p-2 rounded-lg">
+                     <Coffee className="text-stone-700 dark:text-stone-300" size={20} />
                    </div>
                    <span className="font-bold dark:text-stone-200">{method.displayName}</span>
                 </div>
@@ -293,7 +293,7 @@ export default function BrewingPage() {
                 <p className="text-stone-500 dark:text-stone-400 text-sm font-medium">{t.unlock_methods}</p>
                 <button 
                   onClick={() => router.push('/equipment')}
-                  className="bg-coffee text-white px-8 py-3 rounded-full font-black text-sm shadow-lg active:scale-95 transition-all flex items-center space-x-2 mx-auto"
+                  className="bg-stone-700 text-white px-8 py-3 rounded-full font-black text-sm shadow-lg active:scale-95 transition-all flex items-center space-x-2 mx-auto"
                 >
                   <span>{t.go_to_equipment}</span>
                   <ArrowRight size={16} />
@@ -309,8 +309,8 @@ export default function BrewingPage() {
               onClick={() => setShowOther(!showOther)}
               className="w-full flex justify-between items-center mb-4 px-2 text-left group"
             >
-              <h2 className="text-xs font-black uppercase tracking-widest text-stone-500 dark:text-stone-400 group-hover:text-coffee transition-colors">{t.other_methods}</h2>
-              <div className="text-stone-400 dark:text-stone-500 group-hover:text-coffee transition-colors">
+              <h2 className="text-xs font-black uppercase tracking-widest text-stone-500 dark:text-stone-400 group-hover:text-stone-700 transition-colors">{t.other_methods}</h2>
+              <div className="text-stone-400 dark:text-stone-500 group-hover:text-stone-700 transition-colors">
                 {showOther ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
               </div>
             </button>
@@ -335,7 +335,7 @@ export default function BrewingPage() {
                                <button 
                                  key={mName}
                                  onClick={() => eqItem && router.push(`/equipment?item=${eqItem.slug}`)}
-                                 className="bg-stone-100 dark:bg-stone-800 hover:bg-coffee hover:text-white px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors flex items-center space-x-2"
+                                 className="bg-stone-100 dark:bg-stone-800 hover:bg-stone-700 hover:text-white px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors flex items-center space-x-2"
                                >
                                  <ShoppingCart size={10} />
                                  <span>{t[mName as keyof typeof t] || mName}</span>
@@ -369,7 +369,7 @@ export default function BrewingPage() {
                  <div className="text-left">
                    <p className="font-bold dark:text-stone-200">{p.name}</p>
                    <div className="flex flex-wrap items-center gap-2 mt-1">
-                     <p className="text-[10px] font-black uppercase tracking-widest text-coffee-600">
+                     <p className="text-[10px] font-black uppercase tracking-widest text-stone-600">
                         {p.coffee_dose}g / {p.water_yield}ml • {t.ratio}: 1:{p.ratio?.toFixed(1) || (p.water_yield/p.coffee_dose).toFixed(1)}
                      </p>
                      <span className="text-[8px] font-bold bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded text-stone-500 uppercase tracking-tight">
@@ -380,7 +380,7 @@ export default function BrewingPage() {
                      </span>
                    </div>
                  </div>
-                 <ChevronRight size={18} className="text-stone-400 group-hover:text-coffee transition-colors" />
+                 <ChevronRight size={18} className="text-stone-400 group-hover:text-stone-700 transition-colors" />
                </button>
              )) : (
                <div className="bg-white dark:bg-stone-900 rounded-3xl p-8 text-center border border-stone-100 dark:border-stone-800 shadow-sm">
@@ -397,7 +397,7 @@ export default function BrewingPage() {
           <header className="p-6 short:px-6 short:py-3 flex items-center justify-between sticky top-0 bg-stone-950/80 backdrop-blur-md z-10">
              <button onClick={() => setSelectedMethod(null)} className="text-stone-400 hover:text-white text-sm font-black uppercase tracking-widest transition-colors">{t.close}</button>
              <h3 className="font-black text-xl short:text-lg text-white">{t.brewing} {selectedMethod.displayName}</h3>
-             <button onClick={() => setShowSaveDialog(true)} className="bg-stone-900 p-2 rounded-full text-stone-400 hover:text-coffee transition-colors"><Save size={20} /></button>
+             <button onClick={() => setShowSaveDialog(true)} className="bg-stone-900 p-2 rounded-full text-stone-400 hover:text-stone-700 transition-colors"><Save size={20} /></button>
           </header>
           
           <main className="flex-1 p-8 short:p-6 space-y-12 short:space-y-6 max-w-md mx-auto w-full">
@@ -429,10 +429,10 @@ export default function BrewingPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-               <div className={`p-5 short:p-4 rounded-3xl short:rounded-2xl border transition-all space-y-4 short:space-y-2 relative group ${lockedParam === 'coffee' ? 'bg-coffee/10 border-coffee/30 ring-1 ring-coffee/20 shadow-lg' : 'bg-stone-900 border-stone-800 shadow-sm'}`}>
+               <div className={`p-5 short:p-4 rounded-3xl short:rounded-2xl border transition-all space-y-4 short:space-y-2 relative group ${lockedParam === 'coffee' ? 'bg-stone-700/10 border-stone-700/30 ring-1 ring-stone-700/20 shadow-lg' : 'bg-stone-900 border-stone-800 shadow-sm'}`}>
                   <button 
                     onClick={() => setLockedParam(lockedParam === 'coffee' ? 'ratio' : 'coffee')}
-                    className={`absolute top-3 right-3 transition-all p-2 rounded-xl z-10 ${lockedParam === 'coffee' ? 'text-coffee bg-coffee/20 ring-1 ring-coffee/30 shadow-inner' : 'text-stone-600 hover:text-stone-400 bg-stone-950/50 hover:bg-stone-950'}`}
+                    className={`absolute top-3 right-3 transition-all p-2 rounded-xl z-10 ${lockedParam === 'coffee' ? 'text-stone-700 bg-stone-700/20 ring-1 ring-stone-700/30 shadow-inner' : 'text-stone-600 hover:text-stone-400 bg-stone-950/50 hover:bg-stone-950'}`}
                     title={lockedParam === 'coffee' ? t.unlock_param : t.lock_param}
                   >
                     {lockedParam === 'coffee' ? <Lock size={16} /> : <LockOpen size={16} />}
@@ -441,27 +441,27 @@ export default function BrewingPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 text-stone-500">
                       <Scale size={14} />
-                      <span className="text-[10px] font-black uppercase tracking-widest">{t.coffee}</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest">{t.shisha}</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <button onClick={() => handleDoseChange(dose - 0.5)} className="text-stone-500 hover:text-coffee transition-colors p-1"><ChevronDown size={24} /></button>
+                    <button onClick={() => handleDoseChange(dose - 0.5)} className="text-stone-500 hover:text-stone-700 transition-colors p-1"><ChevronDown size={24} /></button>
                     <div className="flex flex-col items-center">
                       <div className="flex items-end space-x-1">
-                        <input type="number" value={dose} onChange={e => handleDoseChange(parseFloat(e.target.value))} className="bg-transparent text-3xl short:text-xl font-black text-white w-16 text-center outline-none focus:text-coffee transition-colors" />
+                        <input type="number" value={dose} onChange={e => handleDoseChange(parseFloat(e.target.value))} className="bg-transparent text-3xl short:text-xl font-black text-white w-16 text-center outline-none focus:text-stone-700 transition-colors" />
                         <span className="text-stone-500 font-bold mb-1">g</span>
                       </div>
                       {lockedParam !== 'coffee' && (
-                        <span className="text-[8px] font-black uppercase tracking-widest text-coffee/40 animate-pulse">{t.recalculate_this}</span>
+                        <span className="text-[8px] font-black uppercase tracking-widest text-stone-700/40 animate-pulse">{t.recalculate_this}</span>
                       )}
                     </div>
-                    <button onClick={() => handleDoseChange(dose + 0.5)} className="text-stone-500 hover:text-coffee transition-colors p-1"><ChevronUp size={24} /></button>
+                    <button onClick={() => handleDoseChange(dose + 0.5)} className="text-stone-500 hover:text-stone-700 transition-colors p-1"><ChevronUp size={24} /></button>
                   </div>
                </div>
-               <div className={`p-5 short:p-4 rounded-3xl short:rounded-2xl border transition-all space-y-4 short:space-y-2 relative group ${lockedParam === 'water' ? 'bg-coffee/10 border-coffee/30 ring-1 ring-coffee/20 shadow-lg' : 'bg-stone-900 border-stone-800 shadow-sm'}`}>
+               <div className={`p-5 short:p-4 rounded-3xl short:rounded-2xl border transition-all space-y-4 short:space-y-2 relative group ${lockedParam === 'water' ? 'bg-stone-700/10 border-stone-700/30 ring-1 ring-stone-700/20 shadow-lg' : 'bg-stone-900 border-stone-800 shadow-sm'}`}>
                   <button 
                     onClick={() => setLockedParam(lockedParam === 'water' ? 'ratio' : 'water')}
-                    className={`absolute top-3 right-3 transition-all p-2 rounded-xl z-10 ${lockedParam === 'water' ? 'text-coffee bg-coffee/20 ring-1 ring-coffee/30 shadow-inner' : 'text-stone-600 hover:text-stone-400 bg-stone-950/50 hover:bg-stone-950'}`}
+                    className={`absolute top-3 right-3 transition-all p-2 rounded-xl z-10 ${lockedParam === 'water' ? 'text-stone-700 bg-stone-700/20 ring-1 ring-stone-700/30 shadow-inner' : 'text-stone-600 hover:text-stone-400 bg-stone-950/50 hover:bg-stone-950'}`}
                     title={lockedParam === 'water' ? t.unlock_param : t.lock_param}
                   >
                     {lockedParam === 'water' ? <Lock size={16} /> : <LockOpen size={16} />}
@@ -474,17 +474,17 @@ export default function BrewingPage() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <button onClick={() => handleWaterChange(water - 10)} className="text-stone-500 hover:text-coffee transition-colors p-1"><ChevronDown size={24} /></button>
+                    <button onClick={() => handleWaterChange(water - 10)} className="text-stone-500 hover:text-stone-700 transition-colors p-1"><ChevronDown size={24} /></button>
                     <div className="flex flex-col items-center">
                       <div className="flex items-end space-x-1">
-                        <input type="number" value={water} onChange={e => handleWaterChange(parseFloat(e.target.value))} className="bg-transparent text-3xl short:text-xl font-black text-white w-20 text-center outline-none focus:text-coffee transition-colors" />
+                        <input type="number" value={water} onChange={e => handleWaterChange(parseFloat(e.target.value))} className="bg-transparent text-3xl short:text-xl font-black text-white w-20 text-center outline-none focus:text-stone-700 transition-colors" />
                         <span className="text-stone-500 font-bold mb-1">ml</span>
                       </div>
                       {lockedParam !== 'water' && (
-                        <span className="text-[8px] font-black uppercase tracking-widest text-coffee/40 animate-pulse">{t.recalculate_this}</span>
+                        <span className="text-[8px] font-black uppercase tracking-widest text-stone-700/40 animate-pulse">{t.recalculate_this}</span>
                       )}
                     </div>
-                    <button onClick={() => handleWaterChange(water + 10)} className="text-stone-500 hover:text-coffee transition-colors p-1"><ChevronUp size={24} /></button>
+                    <button onClick={() => handleWaterChange(water + 10)} className="text-stone-500 hover:text-stone-700 transition-colors p-1"><ChevronUp size={24} /></button>
                   </div>
                </div>
                <div className="bg-stone-900 p-5 short:p-4 rounded-3xl short:rounded-2xl border border-stone-800 space-y-2 short:space-y-1 relative">
@@ -493,7 +493,7 @@ export default function BrewingPage() {
                     <span className="text-[10px] font-black uppercase tracking-widest">{t.temp}</span>
                   </div>
                   <div className="flex items-end space-x-1">
-                    <input type="number" value={temp} onChange={e => setTemp(parseFloat(e.target.value))} className="bg-transparent text-2xl short:text-xl font-black text-white w-16 outline-none focus:text-coffee transition-colors" />
+                    <input type="number" value={temp} onChange={e => setTemp(parseFloat(e.target.value))} className="bg-transparent text-2xl short:text-xl font-black text-white w-16 outline-none focus:text-stone-700 transition-colors" />
                     <span className="text-stone-500 font-bold mb-1">°C</span>
                   </div>
                </div>
@@ -518,12 +518,12 @@ export default function BrewingPage() {
                         const idx = GRIND_LEVELS.indexOf(grind);
                         if (idx > 0) setGrind(GRIND_LEVELS[idx - 1]);
                       }} 
-                      className="text-stone-500 hover:text-coffee transition-colors"
+                      className="text-stone-500 hover:text-stone-700 transition-colors"
                     ><ChevronDown size={20} /></button>
                     
                     <div className="text-center overflow-hidden">
                       <p className="text-sm font-black text-white leading-none truncate">{t[`grind_${grind.toLowerCase().replace('-', '_')}` as keyof typeof t] || grind}</p>
-                      <p className="text-[7px] font-black uppercase tracking-tighter text-coffee mt-1 truncate">
+                      <p className="text-[7px] font-black uppercase tracking-tighter text-stone-700 mt-1 truncate">
                         {t[GRIND_VISUALS[grind] as keyof typeof t]}
                       </p>
                     </div>
@@ -533,13 +533,13 @@ export default function BrewingPage() {
                         const idx = GRIND_LEVELS.indexOf(grind);
                         if (idx < GRIND_LEVELS.length - 1) setGrind(GRIND_LEVELS[idx + 1]);
                       }} 
-                      className="text-stone-500 hover:text-coffee transition-colors"
+                      className="text-stone-500 hover:text-stone-700 transition-colors"
                     ><ChevronUp size={20} /></button>
                   </div>
                </div>
             </div>
 
-            <div className={`p-6 short:p-4 rounded-3xl short:rounded-2xl border transition-all space-y-4 short:space-y-2 ${lockedParam === 'ratio' ? 'bg-coffee/10 border-coffee/30 ring-1 ring-coffee/20 shadow-lg' : 'bg-stone-900 border-stone-800 shadow-sm'}`}>
+            <div className={`p-6 short:p-4 rounded-3xl short:rounded-2xl border transition-all space-y-4 short:space-y-2 ${lockedParam === 'ratio' ? 'bg-stone-700/10 border-stone-700/30 ring-1 ring-stone-700/20 shadow-lg' : 'bg-stone-900 border-stone-800 shadow-sm'}`}>
                <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-2 text-stone-500">
                     <Timer size={14} />
@@ -549,7 +549,7 @@ export default function BrewingPage() {
                     <span className="text-lg short:text-base font-black text-white">{t.ratio}: 1:{ratio.toFixed(1)}</span>
                     <button 
                       onClick={() => setLockedParam(lockedParam === 'ratio' ? 'water' : 'ratio')}
-                      className={`transition-all p-2 rounded-xl ${lockedParam === 'ratio' ? 'text-coffee bg-coffee/20 ring-1 ring-coffee/30 shadow-inner' : 'text-stone-600 hover:text-stone-400 bg-stone-950/50 hover:bg-stone-950'}`}
+                      className={`transition-all p-2 rounded-xl ${lockedParam === 'ratio' ? 'text-stone-700 bg-stone-700/20 ring-1 ring-stone-700/30 shadow-inner' : 'text-stone-600 hover:text-stone-400 bg-stone-950/50 hover:bg-stone-950'}`}
                       title={lockedParam === 'ratio' ? t.unlock_param : t.lock_param}
                     >
                       {lockedParam === 'ratio' ? <Lock size={16} /> : <LockOpen size={16} />}
@@ -563,7 +563,7 @@ export default function BrewingPage() {
                  step="0.1" 
                  value={ratio} 
                  onChange={(e) => handleRatioChange(parseFloat(e.target.value))}
-                 className="w-full h-2 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-coffee"
+                 className="w-full h-2 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-stone-700"
                />
                <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-stone-600">
                   <span>1:10 ({t.strong})</span>
@@ -575,7 +575,7 @@ export default function BrewingPage() {
                <h4 className="font-black uppercase tracking-widest text-xs text-stone-500">{t.steps}</h4>
                {currentMethodSteps.length > 0 ? currentMethodSteps.map((step, i) => (
                  <div key={i} className="flex space-x-5">
-                    <span className="text-coffee-500 font-black text-3xl short:text-2xl opacity-50 italic">{i+1}</span>
+                    <span className="text-stone-500 font-black text-3xl short:text-2xl opacity-50 italic">{i+1}</span>
                     <p className="text-stone-100 short:text-sm font-bold leading-relaxed">
                       {getScaledInstruction(step.instruction, step, dose, water, currentMethodSteps)}
                     </p>
@@ -587,7 +587,7 @@ export default function BrewingPage() {
 
             <button 
               onClick={() => { setTotalElapsed(0); setElapsedInStep(0); setCurrentStepIndex(0); setShowTimer(true); }}
-              className="w-full bg-coffee text-white py-6 short:py-4 rounded-3xl short:rounded-2xl font-black shadow-2xl flex items-center justify-center space-x-3 active:scale-[0.98] transition-all sticky bottom-4"
+              className="w-full bg-stone-700 text-white py-6 short:py-4 rounded-3xl short:rounded-2xl font-black shadow-2xl flex items-center justify-center space-x-3 active:scale-[0.98] transition-all sticky bottom-4"
             >
               <Timer size={24} strokeWidth={3} className="short:w-5 short:h-5" />
               <span className="text-lg short:text-base">{t.start_timer}</span>
@@ -602,14 +602,14 @@ export default function BrewingPage() {
            <button onClick={() => { setShowTimer(false); setTimerActive(false); }} className="absolute top-8 right-8 short:top-4 short:right-4 text-stone-500 hover:text-white transition-colors"><X size={32} className="short:w-6 short:h-6" /></button>
            
            {wakeLock && (
-             <div className="absolute top-8 left-8 short:top-4 short:left-4 flex items-center space-x-2 text-coffee-500 animate-pulse">
+             <div className="absolute top-8 left-8 short:top-4 short:left-4 flex items-center space-x-2 text-stone-500 animate-pulse">
                <Sun size={16} className="short:w-3 short:h-3" />
                <span className="text-[10px] short:text-[8px] font-black uppercase tracking-widest">{t.screen_awake}</span>
              </div>
            )}
 
            <div className="mb-12 short:mb-6">
-              <p className="text-coffee-500 font-black uppercase tracking-[0.3em] text-sm short:text-xs mb-4 short:mb-2">{t.brewing} {selectedMethod.displayName}</p>
+              <p className="text-stone-500 font-black uppercase tracking-[0.3em] text-sm short:text-xs mb-4 short:mb-2">{t.brewing} {selectedMethod.displayName}</p>
               <h2 className="text-7xl short:text-5xl font-black text-white tabular-nums tracking-tighter">{formatTime(totalElapsed)}</h2>
            </div>
            {currentStep ? (
@@ -620,7 +620,7 @@ export default function BrewingPage() {
                      {getScaledInstruction(currentStep.instruction, currentStep, dose, water, currentMethodSteps)}
                    </h3>
                    {currentStep.target_water && (
-                     <div className="bg-coffee/20 text-coffee-400 py-2 px-4 rounded-full inline-block font-black text-sm short:text-xs border border-coffee/30 animate-pulse">
+                     <div className="bg-stone-700/20 text-stone-400 py-2 px-4 rounded-full inline-block font-black text-sm short:text-xs border border-stone-700/30 animate-pulse">
                         {t.target}: {Math.round((currentStep.target_water / (currentMethodSteps[currentMethodSteps.length - 1].target_water || 250)) * water)}g
                      </div>
                    )}
@@ -642,7 +642,7 @@ export default function BrewingPage() {
                         cx="96" 
                         cy="96" 
                         r="88" 
-                        className="stroke-coffee-600 fill-none transition-all duration-1000 ease-linear" 
+                        className="stroke-stone-600 fill-none transition-all duration-1000 ease-linear" 
                         strokeWidth="12" 
                         strokeDasharray={552} 
                         strokeDashoffset={552 - (elapsedInStep / currentStep.duration) * 552} 
@@ -660,7 +660,7 @@ export default function BrewingPage() {
                        <span className="text-4xl short:text-2xl font-black text-white tabular-nums">{elapsedInStep}s</span>
                        <span className="text-[10px] short:text-[8px] font-bold uppercase text-stone-500">{t.seconds}</span>
                     </div>
-                    <p className="text-coffee-500 font-bold text-sm short:text-xs animate-pulse">{t.waiting_for_you}</p>
+                    <p className="text-stone-500 font-bold text-sm short:text-xs animate-pulse">{t.waiting_for_you}</p>
                   </div>
                 )}
                 <div className="flex items-center justify-center space-x-6 short:space-x-4">
@@ -674,14 +674,14 @@ export default function BrewingPage() {
                    
                    <button 
                      onClick={() => setTimerActive(!timerActive)} 
-                     className={`w-24 h-24 short:w-20 short:h-20 rounded-full flex items-center justify-center shadow-2xl transition-all active:scale-90 ${timerActive ? 'bg-stone-900 text-white border border-stone-800' : 'bg-coffee text-white'}`}
+                     className={`w-24 h-24 short:w-20 short:h-20 rounded-full flex items-center justify-center shadow-2xl transition-all active:scale-90 ${timerActive ? 'bg-stone-900 text-white border border-stone-800' : 'bg-stone-700 text-white'}`}
                    >
                      {timerActive ? <Pause size={40} className="short:w-8 short:h-8" fill="currentColor" /> : <Play size={40} className="ml-1 short:w-8 short:h-8" fill="currentColor" />}
                    </button>
 
                    <button 
                      onClick={handleNextStep} 
-                     className={`w-14 h-14 short:w-12 short:h-12 rounded-full flex flex-col items-center justify-center transition-all active:scale-90 border ${currentStep.duration === 0 ? 'bg-coffee text-white border-coffee shadow-lg' : 'bg-stone-900 text-white border-stone-800'}`}
+                     className={`w-14 h-14 short:w-12 short:h-12 rounded-full flex flex-col items-center justify-center transition-all active:scale-90 border ${currentStep.duration === 0 ? 'bg-stone-700 text-white border-stone-700 shadow-lg' : 'bg-stone-900 text-white border-stone-800'}`}
                    >
                      <ChevronRight size={24} className="short:w-5 short:h-5" />
                      <span className="text-[8px] short:text-[6px] font-black uppercase tracking-widest">{t.next}</span>
@@ -691,15 +691,15 @@ export default function BrewingPage() {
            ) : (
              <div className="space-y-8 short:space-y-4 animate-in fade-in duration-700">
                 <div className="w-24 h-24 short:w-16 short:h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 short:mb-3"><Check className="text-green-500 short:w-8 short:h-8" size={48} strokeWidth={4} /></div>
-                <h3 className="text-4xl short:text-2xl font-black text-white">{t.enjoy_coffee}</h3>
-                <button onClick={() => { setShowTimer(false); setSelectedMethod(null); }} className="bg-coffee text-white px-12 short:px-8 py-5 short:py-3 rounded-3xl short:rounded-2xl font-black text-xl short:text-lg shadow-2xl">{t.back_to_journey}</button>
+                <h3 className="text-4xl short:text-2xl font-black text-white">{t.enjoy_shisha}</h3>
+                <button onClick={() => { setShowTimer(false); setSelectedMethod(null); }} className="bg-stone-700 text-white px-12 short:px-8 py-5 short:py-3 rounded-3xl short:rounded-2xl font-black text-xl short:text-lg shadow-2xl">{t.back_to_journey}</button>
              </div>
            )}
 
            {/* Overall Progress Bar */}
            <div className="fixed bottom-0 left-0 w-full h-1 bg-stone-900 z-[110]">
               <div 
-                className="h-full bg-coffee transition-all duration-1000 ease-linear"
+                className="h-full bg-stone-700 transition-all duration-1000 ease-linear"
                 style={{ width: `${Math.min(100, (totalElapsed / Math.max(1, totalDuration)) * 100)}%` }}
               />
            </div>

@@ -70,10 +70,17 @@ export default function Bootstrap() {
       const l = urlParams.get('l');
       if (l) {
         const supported: Record<string, string> = {
-          'en': 'en', 'es': 'es-419', 'es-419': 'es-419', 'pt': 'pt-BR', 'pt-BR': 'pt-BR', 'ru': 'ru', 'ka': 'ka', 'it': 'it'
+          'en': 'en', 'es': 'es-419', 'es-419': 'es-419', 'pt': 'pt-BR', 'pt-BR': 'pt-BR', 'ru': 'ru', 'ka': 'ka', 'it': 'it', 'ar': 'ar'
         };
         urlLang = supported[l.toLowerCase()] || null;
       }
+    }
+
+    // Update HTML lang and dir attributes
+    if (typeof document !== 'undefined') {
+      const currentLang = user?.language || 'en';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     }
 
     // If URL override exists and differs from current user/guest lang, apply it
@@ -97,7 +104,7 @@ export default function Bootstrap() {
 
     const baseHeaders: Record<string, string> = {};
     if (user?.language) {
-      baseHeaders['X-Shishapp-Language'] = user.language;
+      baseHeaders['X-MyShisha.vip-Language'] = user.language;
     }
     
     let authFailed = false;
@@ -155,7 +162,7 @@ export default function Bootstrap() {
           setSyncing(entry.id, true);
           const headers: Record<string, string> = { 
             'Content-Type': 'application/json', 
-            'X-Shishapp-Language': user?.language || 'en' 
+            'X-MyShisha.vip-Language': user?.language || 'en' 
           };
           if (currentToken) {
             headers['Authorization'] = `Bearer ${currentToken}`;

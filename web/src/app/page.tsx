@@ -167,12 +167,12 @@ function HomePageContent() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Shishapp",
-            "url": "https://shishapp.com",
-            "description": "Shishapp is your personal shisha journal and session companion.",
+            "name": "MyShisha.vip",
+            "url": "https://myshisha.vip",
+            "description": "MyShisha.vip is your personal shisha journal and session companion.",
             "applicationCategory": "LifestyleApplication, UtilityApplication",
             "operatingSystem": "Web (PWA)",
-            "author": { "@type": "Organization", "name": "Shishapp" }
+            "author": { "@type": "Organization", "name": "MyShisha.vip" }
           })
         }}
       />

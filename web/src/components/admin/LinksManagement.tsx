@@ -37,7 +37,7 @@ export function LinksManagement({
           </div>
           <button 
             onClick={() => { setCurrentLink({ equipmentName: equipmentList[0]?.internal_name || '', description: '', url: '', countryCode: 'WW', price: 0 }); setIsEditingLink(true); }}
-            className="bg-coffee text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
+            className="bg-stone-700 text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform"
           >
             <Plus size={20} />
           </button>
@@ -51,12 +51,12 @@ export function LinksManagement({
                <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-2 mb-1">
                     <span className="font-bold">{l.equipmentName}</span>
-                    <span className="bg-coffee/10 text-coffee-700 dark:text-coffee-300 px-2 py-0.5 rounded-lg text-[8px] font-black uppercase tracking-widest">{l.countryCode}</span>
+                    <span className="bg-stone-700/10 text-stone-700 dark:text-stone-300 px-2 py-0.5 rounded-lg text-[8px] font-black uppercase tracking-widest">{l.countryCode}</span>
                   </div>
                   <p className="text-xs text-stone-500 font-medium truncate">{l.description}</p>
                   <div className="flex items-center space-x-2 mt-2">
                      <span className="text-[10px] font-black text-green-600 bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded">{getCurrencySymbol(l.countryCode)}{l.price}</span>
-                     <a href={l.url} target="_blank" rel="noopener noreferrer" className="text-[10px] text-stone-400 hover:text-coffee flex items-center space-x-1">
+                     <a href={l.url} target="_blank" rel="noopener noreferrer" className="text-[10px] text-stone-400 hover:text-stone-700 flex items-center space-x-1">
                         <span className="truncate max-w-[150px]">{l.url}</span>
                         <ExternalLink size={10} />
                      </a>
@@ -65,7 +65,7 @@ export function LinksManagement({
                <div className="flex items-center space-x-1 ml-4">
                   {isCountryAdmin(l.countryCode) && (
                     <>
-                      <button onClick={() => { setCurrentLink(l); setIsEditingLink(true); }} className="p-2 text-stone-400 hover:text-coffee transition-colors"><Edit3 size={18} /></button>
+                      <button onClick={() => { setCurrentLink(l); setIsEditingLink(true); }} className="p-2 text-stone-400 hover:text-stone-700 transition-colors"><Edit3 size={18} /></button>
                       <button onClick={() => handleDeleteLink(l.id)} className="p-2 text-stone-400 hover:text-red-500 transition-colors"><Trash2 size={18} /></button>
                     </>
                   )}

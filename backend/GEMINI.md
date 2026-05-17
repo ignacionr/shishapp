@@ -1,4 +1,4 @@
-# Project Context: Backend (Shishapp)
+# Project Context: Backend (MyShisha.vip)
 
 ## Foundational Mandates
 - Refer to the root **GEMINI.md** and **PLAN.md**.

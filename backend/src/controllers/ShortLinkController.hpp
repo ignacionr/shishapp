@@ -3,7 +3,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class ShortLinkController : public drogon::HttpController<ShortLinkController> {
 public:
@@ -14,4 +14,4 @@ public:
     void redirect(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, const std::string& code);
 };
 
-} // namespace shishapp
+} // namespace myshisha

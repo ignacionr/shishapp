@@ -80,8 +80,8 @@ export default function SearchPage() {
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 p-6 pb-24 text-stone-900 dark:text-stone-100">
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-3xl font-black">{t.search}</h1>
-        <div className="bg-coffee/10 p-3 rounded-full">
-          <MapPin className="text-coffee" size={24} />
+        <div className="bg-stone-700/10 p-3 rounded-full">
+          <MapPin className="text-stone-700" size={24} />
         </div>
       </div>
 
@@ -97,7 +97,7 @@ export default function SearchPage() {
           <button 
             onClick={handleRequestLocation}
             disabled={loading}
-            className="w-full sm:w-auto bg-coffee text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 active:scale-95 transition-transform disabled:opacity-50"
+            className="w-full sm:w-auto bg-stone-700 text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 active:scale-95 transition-transform disabled:opacity-50"
           >
             {loading ? <Loader2 className="animate-spin" /> : <Navigation size={18} />}
             <span>{t.allow_loc}</span>
@@ -119,12 +119,12 @@ export default function SearchPage() {
               >
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold group-hover:text-coffee transition-colors">{venue.name}</h3>
+                    <h3 className="text-xl font-bold group-hover:text-stone-700 transition-colors">{venue.name}</h3>
                     <a 
                       href={`https://www.google.com/maps/search/?api=1&query=${venue.latitude},${venue.longitude}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-stone-500 dark:text-stone-400 text-sm font-medium flex items-center mt-1 hover:text-coffee transition-colors"
+                      className="text-stone-500 dark:text-stone-400 text-sm font-medium flex items-center mt-1 hover:text-stone-700 transition-colors"
                     >
                       <MapPin size={14} className="mr-1" />
                       {venue.address}, {venue.city}
@@ -149,7 +149,7 @@ export default function SearchPage() {
                 <div className="flex gap-3">
                   <button 
                     onClick={() => handleCheckin(venue)}
-                    className="flex-1 bg-coffee text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform"
+                    className="flex-1 bg-stone-700 text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform"
                   >
                     <Coffee size={16} />
                     <span>{t.checkin_here}</span>
@@ -168,14 +168,14 @@ export default function SearchPage() {
 
             {loading && (
               <div className="flex justify-center py-12">
-                <Loader2 className="text-coffee animate-spin" size={32} />
+                <Loader2 className="text-stone-700 animate-spin" size={32} />
               </div>
             )}
           </div>
 
           <button 
             onClick={handleRequestLocation}
-            className="w-full py-4 text-stone-500 dark:text-stone-400 text-sm font-bold flex items-center justify-center space-x-2 hover:text-coffee transition-colors"
+            className="w-full py-4 text-stone-500 dark:text-stone-400 text-sm font-bold flex items-center justify-center space-x-2 hover:text-stone-700 transition-colors"
           >
             <Navigation size={14} />
             <span>{t.update_location}</span>

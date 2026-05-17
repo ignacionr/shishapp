@@ -4,7 +4,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class AdminShortLinkController : public drogon::HttpController<AdminShortLinkController> {
 public:
@@ -23,4 +23,4 @@ public:
     void remove(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string id);
 };
 
-} // namespace shishapp
+} // namespace myshisha

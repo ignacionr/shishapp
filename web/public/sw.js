@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shishapp-v3';
+const CACHE_NAME = 'myshisha-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',

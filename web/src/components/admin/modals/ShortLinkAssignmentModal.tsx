@@ -39,7 +39,7 @@ export function ShortLinkAssignmentModal({
             <header className="flex justify-between items-center">
                 <div>
                     <h4 className="text-xl font-black text-white">{t.assign_to_venue}</h4>
-                    <p className="text-[10px] text-coffee-400 font-bold">/dl/{selectedShortLink.code}</p>
+                    <p className="text-[10px] text-stone-400 font-bold">/dl/{selectedShortLink.code}</p>
                 </div>
                 <button onClick={onClose} className="text-stone-500 hover:text-white"><X size={24} /></button>
             </header>
@@ -53,12 +53,12 @@ export function ShortLinkAssignmentModal({
                             value={customRedirectPath}
                             onChange={(e) => setCustomRedirectPath(e.target.value)}
                             placeholder="/for-venues"
-                            className="flex-1 bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50"
+                            className="flex-1 bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50"
                         />
                         <button 
                             disabled={isSavingShortLink || !customRedirectPath}
                             onClick={handleAssignShortLinkToPath}
-                            className="bg-coffee hover:bg-coffee-600 disabled:bg-stone-800 text-white px-4 rounded-2xl transition-all"
+                            className="bg-stone-700 hover:bg-stone-600 disabled:bg-stone-800 text-white px-4 rounded-2xl transition-all"
                         >
                             {isSavingShortLink ? <Loader2 size={18} className="animate-spin" /> : <Plus size={20} />}
                         </button>
@@ -73,10 +73,10 @@ export function ShortLinkAssignmentModal({
                             value={venueSearch}
                             onChange={(e) => handleSearchVenues(e.target.value)}
                             placeholder={t.search_venues_placeholder}
-                            className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50 pl-12"
+                            className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50 pl-12"
                         />
                         <MapPin size={18} className="absolute left-4 top-4 text-stone-600" />
-                        {isSearchingVenues && <Loader2 size={18} className="absolute right-4 top-4 animate-spin text-coffee" />}
+                        {isSearchingVenues && <Loader2 size={18} className="absolute right-4 top-4 animate-spin text-stone-700" />}
                     </div>
                 </div>
 
@@ -86,13 +86,13 @@ export function ShortLinkAssignmentModal({
                             key={v.id}
                             disabled={isSavingShortLink}
                             onClick={() => handleAssignShortLinkToVenue(v)}
-                            className="w-full bg-stone-950 border border-stone-800 hover:border-coffee/50 p-4 rounded-2xl text-left flex justify-between items-center transition-all group disabled:opacity-50"
+                            className="w-full bg-stone-950 border border-stone-800 hover:border-stone-700/50 p-4 rounded-2xl text-left flex justify-between items-center transition-all group disabled:opacity-50"
                         >
                             <div className="flex flex-col">
                                 <span className="text-sm font-bold text-stone-300 group-hover:text-white">{v.name}</span>
                                 <span className="text-[10px] text-stone-500 font-bold">{v.city}, {v.address}</span>
                             </div>
-                            {isSavingShortLink ? <Loader2 size={16} className="animate-spin text-coffee" /> : <Plus size={18} className="text-stone-600 group-hover:text-coffee" />}
+                            {isSavingShortLink ? <Loader2 size={16} className="animate-spin text-stone-700" /> : <Plus size={18} className="text-stone-600 group-hover:text-stone-700" />}
                         </button>
                     )) : venueSearch.length >= 2 ? (
                         <p className="text-center py-8 text-stone-600 font-bold text-sm italic">{t.no_venues_found}</p>

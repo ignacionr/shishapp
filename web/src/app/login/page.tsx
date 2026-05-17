@@ -34,7 +34,7 @@ function MasteryRing({ mastery }: { mastery?: UserMastery }) {
         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
       />
       <path
-        className="text-coffee-600 dark:text-coffee-400 transition-all duration-1000 ease-out"
+        className="text-stone-600 dark:text-stone-400 transition-all duration-1000 ease-out"
         strokeDasharray={strokeDasharray}
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -52,7 +52,8 @@ const SUPPORTED_LANGUAGES = [
   { code: "pt-BR", name: "Português" },
   { code: "ru", name: "Русский" },
   { code: "ka", name: "ქართული" },
-  { code: "it", name: "Italiano" }
+  { code: "it", name: "Italiano" },
+  { code: "ar", name: "العربية" }
 ];
 
 export default function LoginPage() {
@@ -100,11 +101,11 @@ export default function LoginPage() {
       <div className="min-h-screen bg-stone-50 dark:bg-stone-950 p-6 pb-24">
         <header className="flex flex-col items-center py-12 text-center relative">
            <div className="relative mb-6">
-              <div className="w-24 h-24 bg-coffee-100 dark:bg-coffee-900/30 rounded-full flex items-center justify-center border-2 border-white dark:border-stone-900 overflow-hidden shadow-xl relative z-10">
+              <div className="w-24 h-24 bg-stone-100 dark:bg-stone-900/30 rounded-full flex items-center justify-center border-2 border-white dark:border-stone-900 overflow-hidden shadow-xl relative z-10">
                 {user.picture ? (
                   <img src={user.picture} alt={user.name} className="w-full h-full object-cover" />
                 ) : (
-                  <UserIcon size={48} className="text-coffee-700 dark:text-coffee-300" />
+                  <UserIcon size={48} className="text-stone-700 dark:text-stone-300" />
                 )}
               </div>
               <MasteryRing mastery={user.mastery} />
@@ -117,14 +118,14 @@ export default function LoginPage() {
              <div className="flex items-center space-x-2">
                <h1 className="text-3xl font-black dark:text-stone-100">{user.name}</h1>
                {user.mastery && (
-                 <span className="bg-coffee-100 dark:bg-coffee-900/40 text-coffee-700 dark:text-coffee-300 px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-widest border border-coffee/10">
+                 <span className="bg-stone-100 dark:bg-stone-900/40 text-stone-700 dark:text-stone-300 px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-widest border border-stone-700/10">
                    LVL {user.mastery.current_level}
                  </span>
                )}
              </div>
              <p className="text-stone-500 font-medium">{user.email}</p>
              {user.mastery && (
-               <p className="text-[10px] font-black uppercase tracking-[0.2em] text-coffee-600 dark:text-coffee-400 mt-2 flex items-center space-x-1">
+               <p className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-600 dark:text-stone-400 mt-2 flex items-center space-x-1">
                  <Award size={12} />
                  <span>{t[`mastery_title_${user.mastery.current_level}` as keyof typeof t] || t.mastery_title_1}</span>
                </p>
@@ -172,7 +173,7 @@ export default function LoginPage() {
                      const newLang = COUNTRY_DATA[newCountry]?.lang || user.language;
                      updateProfile({ country: newCountry, language: newLang });
                    }}
-                   className="bg-transparent font-bold text-sm text-coffee-700 dark:text-coffee-400 focus:outline-none text-right appearance-none"
+                   className="bg-transparent font-bold text-sm text-stone-700 dark:text-stone-400 focus:outline-none text-right appearance-none"
                  >
                    {Object.entries(COUNTRY_DATA).map(([code, data]) => (
                      <option key={code} value={code}>{data.label}</option>
@@ -188,7 +189,7 @@ export default function LoginPage() {
                  <select 
                    value={user.language}
                    onChange={(e) => updateProfile({ language: e.target.value })}
-                   className="bg-transparent font-bold text-sm text-coffee-700 dark:text-coffee-400 focus:outline-none text-right appearance-none"
+                   className="bg-transparent font-bold text-sm text-stone-700 dark:text-stone-400 focus:outline-none text-right appearance-none"
                  >
                    {SUPPORTED_LANGUAGES.map(l => (
                      <option key={l.code} value={l.code}>{l.name}</option>
@@ -225,8 +226,8 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center p-6 text-center">
-      <div className="bg-coffee/10 p-6 rounded-3xl mb-8">
-        <Coffee size={64} className="text-coffee-700 dark:text-coffee-300" />
+      <div className="bg-stone-700/10 p-6 rounded-3xl mb-8">
+        <Coffee size={64} className="text-stone-700 dark:text-stone-300" />
       </div>
       
       <h1 className="text-4xl font-black mb-2 dark:text-stone-100">Vidita Cafe</h1>
@@ -237,13 +238,13 @@ export default function LoginPage() {
            <button 
              onClick={() => setAcceptedTerms(!acceptedTerms)}
              className={`mt-1 flex-shrink-0 w-6 h-6 rounded-md border-2 transition-all flex items-center justify-center ${
-               acceptedTerms ? 'bg-coffee-700 border-coffee-700' : 'border-stone-300 dark:border-stone-700'
+               acceptedTerms ? 'bg-stone-700 border-stone-700' : 'border-stone-300 dark:border-stone-700'
              }`}
            >
              {acceptedTerms && <CheckCircle2 size={16} className="text-white" />}
            </button>
            <p className="text-xs text-stone-500 dark:text-stone-400 leading-normal font-medium">
-             {t.agree} <Link href="/terms" className="text-coffee-700 dark:text-coffee-400 underline decoration-coffee/30">{t.terms}</Link> {t.and} <Link href="/privacy" className="text-coffee-700 dark:text-coffee-400 underline decoration-coffee/30">{t.privacy}</Link>.
+             {t.agree} <Link href="/terms" className="text-stone-700 dark:text-stone-400 underline decoration-stone-700/30">{t.terms}</Link> {t.and} <Link href="/privacy" className="text-stone-700 dark:text-stone-400 underline decoration-stone-700/30">{t.privacy}</Link>.
            </p>
         </div>
 
@@ -253,7 +254,7 @@ export default function LoginPage() {
           aria-label={t.login}
           className={`w-full flex items-center justify-center space-x-3 py-4 rounded-2xl font-bold shadow-xl transition-all ${
             acceptedTerms 
-            ? 'bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-800 dark:text-stone-200 active:scale-[0.98] hover:border-coffee/30' 
+            ? 'bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-800 dark:text-stone-200 active:scale-[0.98] hover:border-stone-700/30' 
             : 'bg-stone-100 dark:bg-stone-800 text-stone-400 dark:text-stone-600 border border-transparent cursor-not-allowed opacity-50'
           }`}
         >
@@ -264,7 +265,7 @@ export default function LoginPage() {
 
       <button 
         onClick={() => router.push('/')}
-        className="mt-8 text-coffee-700 dark:text-coffee-300 font-black text-sm uppercase tracking-widest hover:underline"
+        className="mt-8 text-stone-700 dark:text-stone-300 font-black text-sm uppercase tracking-widest hover:underline"
       >
         {t.home}
       </button>

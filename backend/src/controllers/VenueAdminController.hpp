@@ -3,7 +3,7 @@
 
 using namespace drogon;
 
-namespace shishapp {
+namespace myshisha {
 
 class VenueAdminController : public drogon::HttpController<VenueAdminController> {
 public:
@@ -20,4 +20,4 @@ public:
     void removePromotion(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback, std::string id);
 };
 
-} // namespace shishapp
+} // namespace myshisha

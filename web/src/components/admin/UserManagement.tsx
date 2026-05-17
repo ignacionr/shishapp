@@ -48,7 +48,7 @@ export function UserManagement({
                   value={userSearch}
                   onChange={(e) => handleSearchUsers(e.target.value)}
                   placeholder={t.search_users}
-                  className="w-full bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 rounded-2xl py-2 px-4 pl-10 text-sm font-bold outline-none focus:ring-2 focus:ring-coffee/20"
+                  className="w-full bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 rounded-2xl py-2 px-4 pl-10 text-sm font-bold outline-none focus:ring-2 focus:ring-stone-700/20"
               />
               <BarChart3 size={16} className="absolute left-3 top-2.5 text-stone-400 rotate-90" />
            </div>
@@ -72,7 +72,7 @@ export function UserManagement({
                   <span className="text-[10px] text-stone-500 font-medium truncate">{u.email}</span>
                   <div className="flex flex-wrap gap-1 mt-1">
                       {u.roles?.map((r) => (
-                          <span key={r.id} className="bg-coffee/10 text-coffee-700 dark:text-coffee-300 px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest">
+                          <span key={r.id} className="bg-stone-700/10 text-stone-700 dark:text-stone-300 px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest">
                               {r.role_type}{r.target_id ? `: ${r.target_id}` : ''}
                           </span>
                       ))}
@@ -97,7 +97,7 @@ export function UserManagement({
                           {isGlobalAdmin && (
                               <button 
                                   onClick={() => { setSelectedUser(u); setIsManagingRoles(true); }}
-                                  className="p-2 bg-stone-50 dark:bg-stone-800 rounded-xl text-stone-400 hover:text-coffee transition-all active:scale-90"
+                                  className="p-2 bg-stone-50 dark:bg-stone-800 rounded-xl text-stone-400 hover:text-stone-700 transition-all active:scale-90"
                               >
                                   <Plus size={18} />
                               </button>

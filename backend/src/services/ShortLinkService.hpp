@@ -5,7 +5,7 @@
 #include <functional>
 #include "models/models.hpp"
 
-namespace shishapp {
+namespace myshisha {
 
 class ShortLinkService {
 public:
@@ -30,4 +30,4 @@ public:
                                     std::function<void(const drogon::orm::DrogonDbException&)>&& dbErrorCallback);
 };
 
-} // namespace shishapp
+} // namespace myshisha

@@ -1,9 +1,9 @@
-# Shishapp - Adaptation Plan
+# MyShisha.vip - Adaptation Plan
 
-This document outlines the transformation of the Vidita Cafe PWA into **Shishapp**, a dedicated platform for shisha lovers.
+This document outlines the transformation of the Vidita Cafe PWA into **MyShisha.vip**, a dedicated platform for shisha lovers.
 
 ## 1. Brand & Metadata
-- [ ] **Project Rename**: Update all instances of "Vidita Cafe" to "Shishapp" in `package.json`, `README.md`, and code comments.
+- [ ] **Project Rename**: Update all instances of "Vidita Cafe" to "MyShisha.vip" in `package.json`, `README.md`, and code comments.
 - [ ] **PWA Manifest**: Update `web/public/manifest.json` with new name, short_name, and icons.
 - [ ] **Icons & Logos**: Replace coffee-related icons in `web/public/static/images` and `web/public/favicon.ico`.
 - [ ] **Color Palette**: Shift from coffee browns to a shisha-appropriate theme (e.g., Deep Blue/Purple for smoke or Charcoal Grey/Amber).
@@ -54,4 +54,4 @@ This document outlines the transformation of the Vidita Cafe PWA into **Shishapp
 
 ## 5. Deployment & Safety
 - [ ] **CI/CD**: (Completed) Removed original Vidita Cafe workflows to prevent accidental deployments.
-- [ ] **Infrastructure**: Set up new endpoints and database instance specifically for Shishapp.
+- [ ] **Infrastructure**: Set up new endpoints and database instance specifically for MyShisha.vip.

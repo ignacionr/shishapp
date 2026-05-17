@@ -2,7 +2,7 @@
 #include "models/models.hpp"
 #include <glaze/glaze.hpp>
 
-using namespace shishapp;
+using namespace myshisha;
 
 TEST(CatalogModelTest, VideoSerialization) {
     Video v = {"1", "slug", "Title", "Description", "en"};

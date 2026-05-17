@@ -4,7 +4,7 @@
 #include "services/ContextService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace shishapp {
+namespace myshisha {
 
 void AuthController::registerUser(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     // Simulated registration logic
@@ -99,7 +99,7 @@ void AuthController::googleLogin(const HttpRequestPtr& req, std::function<void(c
             }
 
             AuthResponse response;
-            response.token = "simulated_shishapp_jwt_" + id;
+            response.token = "simulated_myshisha_jwt_" + id;
             response.user = User{id, email, name, picture, finalCountry, finalLang, id, isAdmin};
 
             // Fetch Roles
@@ -362,4 +362,4 @@ void AuthController::registerDevice(const HttpRequestPtr& req, std::function<voi
     );
 }
 
-} // namespace shishapp
+} // namespace myshisha

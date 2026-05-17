@@ -14,16 +14,16 @@ INSERT INTO venues (name, latitude, longitude, tags, address, city) VALUES
 -- We'll use Amazon.es or local roaster links as placeholders/standard for now.
 
 -- V60 Filters for Spain
-INSERT INTO purchase_links (equipment_id, url, country_code, price, description)
-SELECT id, 'https://www.amazon.es/Hario-V60-Filtros-papel-tama%C3%B1o/dp/B001U7IHSW', 'ES', 7.50, 'Filtros Hario V60-02 (100u) - Amazon.es'
+INSERT INTO purchase_links (equipment_name, url, country_code, price, description)
+SELECT name, 'https://www.amazon.es/Hario-V60-Filtros-papel-tama%C3%B1o/dp/B001U7IHSW', 'ES', 7.50, 'Filtros Hario V60-02 (100u) - Amazon.es'
 FROM equipment WHERE slug = 'v60';
 
 -- Chemex Filters for Spain
-INSERT INTO purchase_links (equipment_id, url, country_code, price, description)
-SELECT id, 'https://www.amazon.es/Chemex-FSU-100-Filtros-de-papel/dp/B0000CF2WR', 'ES', 14.90, 'Filtros Chemex Square (100u) - Amazon.es'
+INSERT INTO purchase_links (equipment_name, url, country_code, price, description)
+SELECT name, 'https://www.amazon.es/Chemex-FSU-100-Filtros-de-papel/dp/B0000CF2WR', 'ES', 14.90, 'Filtros Chemex Square (100u) - Amazon.es'
 FROM equipment WHERE slug = 'chemex';
 
 -- Digital Scale for Spain
-INSERT INTO purchase_links (equipment_id, url, country_code, price, description)
-SELECT id, 'https://www.amazon.es/Hario-VST-2000B-Balanza-goteo-V60/dp/B009GPJMOU', 'ES', 45.00, 'Balanza Hario V60 - Amazon.es'
+INSERT INTO purchase_links (equipment_name, url, country_code, price, description)
+SELECT name, 'https://www.amazon.es/Hario-VST-2000B-Balanza-goteo-V60/dp/B009GPJMOU', 'ES', 45.00, 'Balanza Hario V60 - Amazon.es'
 FROM equipment WHERE slug = 'digital-scale';

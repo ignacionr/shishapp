@@ -756,7 +756,7 @@ export default function AdminPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center space-y-4">
-        <Loader2 className="animate-spin text-coffee" size={32} />
+        <Loader2 className="animate-spin text-stone-700" size={32} />
         <p className="text-stone-500 font-bold animate-pulse">{t.authenticating}</p>
       </div>
     );

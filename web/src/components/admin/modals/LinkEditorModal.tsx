@@ -47,7 +47,7 @@ export function LinkEditorModal({
                 <select 
                   value={currentLink.equipmentName} 
                   onChange={e => setCurrentLink({...currentLink, equipmentName: e.target.value})} 
-                  className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50"
+                  className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50"
                 >
                   {equipmentList.map(e => (<option key={e.id} value={e.internal_name || e.name}>{e.internal_name || e.name}</option>))}
                 </select>
@@ -57,7 +57,7 @@ export function LinkEditorModal({
                 <select 
                   value={currentLink.countryCode} 
                   onChange={e => setCurrentLink({...currentLink, countryCode: e.target.value})} 
-                  className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-coffee/50"
+                  className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none focus:ring-2 focus:ring-stone-700/50"
                 >
                   {COUNTRIES.map(c => (<option key={c.code} value={c.code}>{c.label}</option>))}
                 </select>
@@ -75,7 +75,7 @@ export function LinkEditorModal({
                 <input type="number" value={currentLink.price} onChange={e => setCurrentLink({...currentLink, price: parseFloat(e.target.value)})} placeholder="0.00" className="w-full bg-stone-950 border border-stone-800 text-white p-4 rounded-2xl font-bold outline-none" />
              </div>
           </div>
-          <button onClick={handleSaveLink} disabled={isSavingLink} className="w-full bg-coffee text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
+          <button onClick={handleSaveLink} disabled={isSavingLink} className="w-full bg-stone-700 text-white py-5 rounded-3xl font-black shadow-lg flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
             {isSavingLink ? <Loader2 className="animate-spin" size={20} /> : <Save size={20} />}
             <span>{t.save_provision_link}</span>
           </button>

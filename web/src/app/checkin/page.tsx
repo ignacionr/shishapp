@@ -20,7 +20,7 @@ function CheckinRedirect() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 flex flex-col items-center justify-center p-6 text-center">
-      <Loader2 className="text-coffee animate-spin mb-4" size={48} />
+      <Loader2 className="text-stone-700 animate-spin mb-4" size={48} />
       <h1 className="text-xl font-bold dark:text-stone-100">{t.preparing_checkin}</h1>
     </div>
   );

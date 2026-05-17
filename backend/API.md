@@ -1,13 +1,13 @@
 # Vidita Cafe API Specification
 
 ## Base URL
-`https://api.shishapp.com/api/v1`
+`https://api.myshisha.vip/api/v1`
 
 ## Headers
 *   **Authentication**: Most endpoints require a Bearer token.
     `Authorization: Bearer <token>`
 *   **Language**: Used to override preferred content language.
-    `X-Shishapp-Language: <lang_code>` (e.g., `es`, `en`, `pt-BR`)
+    `X-MyShisha.vip-Language: <lang_code>` (e.g., `es`, `en`, `pt-BR`)
 *   **Country**: Used for initial context in some endpoints.
     `X-Vidita-Country: <country_code>` (e.g., `AR`, `UY`)
 

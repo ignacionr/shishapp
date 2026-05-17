@@ -2,7 +2,7 @@
 #include "services/AuthService.hpp"
 #include <glaze/glaze.hpp>
 
-namespace shishapp {
+namespace myshisha {
 
 void AdminVenueController::list(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback) {
     auto userId = AuthService::getUserIdFromRequest(req);
@@ -215,4 +215,4 @@ void AdminVenueController::setVenueTags(const HttpRequestPtr& req, std::function
     });
 }
 
-} // namespace shishapp
+} // namespace myshisha

@@ -3,7 +3,7 @@
 #include <glaze/glaze.hpp>
 #include <string>
 
-using namespace shishapp;
+using namespace myshisha;
 
 TEST(EncodingTest, UTF8CharacterPreservation) {
     // The user's name with accented characters

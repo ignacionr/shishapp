@@ -34,13 +34,13 @@ export function GlobalStats({ stats, t }: GlobalStatsProps) {
           <section>
             <div className="flex items-center space-x-2 text-stone-500 mb-6 px-2">
                 <Coffee size={18} />
-                <h2 className="text-xs font-black uppercase tracking-widest">{t.popular_coffee}</h2>
+                <h2 className="text-xs font-black uppercase tracking-widest">{t.popular_shisha}</h2>
             </div>
             <div className="bg-white dark:bg-stone-900 rounded-3xl overflow-hidden border border-stone-100 dark:border-stone-800 shadow-sm">
                 {stats.popular_coffee.map((entry, idx) => (
                   <div key={entry.name} className={`p-5 flex justify-between items-center ${idx !== stats.popular_coffee.length - 1 ? 'border-b border-stone-50 dark:border-stone-800' : ''}`}>
                     <span className="font-bold text-sm">{entry.name}</span>
-                    <span className="bg-stone-50 dark:bg-stone-950 px-3 py-1 rounded-full text-[10px] font-black text-coffee-700">{entry.count}</span>
+                    <span className="bg-stone-50 dark:bg-stone-950 px-3 py-1 rounded-full text-[10px] font-black text-stone-700">{entry.count}</span>
                   </div>
                 ))}
             </div>
@@ -55,7 +55,7 @@ export function GlobalStats({ stats, t }: GlobalStatsProps) {
                 {stats.popular_methods.map((entry, idx) => (
                   <div key={entry.name} className={`p-5 flex justify-between items-center ${idx !== stats.popular_methods.length - 1 ? 'border-b border-stone-50 dark:border-stone-800' : ''}`}>
                     <span className="font-bold text-sm">{t[entry.name as keyof typeof t] || entry.name}</span>
-                    <span className="bg-stone-50 dark:bg-stone-950 px-3 py-1 rounded-full text-[10px] font-black text-coffee-700">{entry.count}</span>
+                    <span className="bg-stone-50 dark:bg-stone-950 px-3 py-1 rounded-full text-[10px] font-black text-stone-700">{entry.count}</span>
                   </div>
                 ))}
             </div>
@@ -72,7 +72,7 @@ export function GlobalStats({ stats, t }: GlobalStatsProps) {
                   {stats.popular_venues?.map((entry, idx) => (
                   <div key={entry.name} className={`p-5 flex justify-between items-center ${idx !== stats.popular_venues.length - 1 ? 'border-b border-stone-50 dark:border-stone-800' : ''}`}>
                       <span className="font-bold text-sm">{entry.name}</span>
-                      <span className="bg-stone-50 dark:bg-stone-950 px-3 py-1 rounded-full text-[10px] font-black text-coffee-700">{entry.count}</span>
+                      <span className="bg-stone-50 dark:bg-stone-950 px-3 py-1 rounded-full text-[10px] font-black text-stone-700">{entry.count}</span>
                   </div>
                   ))}
               </div>
@@ -87,7 +87,7 @@ export function GlobalStats({ stats, t }: GlobalStatsProps) {
                   {stats.users_by_country.map((entry, idx) => (
                   <div key={entry.name} className={`p-5 flex justify-between items-center ${idx !== stats.users_by_country.length - 1 ? 'border-b border-stone-50 dark:border-stone-800' : ''}`}>
                       <span className="font-bold">{COUNTRIES.find(c => c.code === entry.name)?.label || entry.name}</span>
-                      <span className="bg-stone-100 dark:bg-stone-800 px-3 py-1 rounded-full text-xs font-black text-coffee-700">{entry.count}</span>
+                      <span className="bg-stone-100 dark:bg-stone-800 px-3 py-1 rounded-full text-xs font-black text-stone-700">{entry.count}</span>
                   </div>
                   ))}
               </div>

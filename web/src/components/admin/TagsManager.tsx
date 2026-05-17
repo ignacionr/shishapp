@@ -16,7 +16,8 @@ const SUPPORTED_LANGUAGES = [
   { code: 'pt-BR', label: 'Português' },
   { code: 'ru', label: 'Русский' },
   { code: 'ka', label: 'ქართული' },
-  { code: 'it', label: 'Italiano' }
+  { code: 'it', label: 'Italiano' },
+  { code: 'ar', label: 'العربية' }
 ];
 
 export function TagsManager() {
@@ -28,7 +29,7 @@ export function TagsManager() {
       case 'emotional': return <Smile size={18} className="text-orange-500" />;
       case 'environment': return <Wind size={18} className="text-blue-500" />;
       case 'taste': return <Utensils size={18} className="text-green-500" />;
-      case 'menu': return <Coffee size={18} className="text-coffee" />;
+      case 'menu': return <Coffee size={18} className="text-stone-700" />;
       default: return <TagIcon size={18} className="text-stone-400" />;
     }
   };
@@ -53,16 +54,16 @@ export function TagsManager() {
     fetchAllTags();
   }, []);
 
-  if (loading) return <div className="flex justify-center py-20"><Loader2 className="animate-spin text-coffee" size={48} /></div>;
+  if (loading) return <div className="flex justify-center py-20"><Loader2 className="animate-spin text-stone-700" size={48} /></div>;
 
   return (
     <div className="space-y-12">
       <div className="flex justify-between items-center px-2">
         <h2 className="text-2xl font-black uppercase tracking-tighter flex items-center">
-          <TagIcon className="mr-3 text-coffee" size={28} />
+          <TagIcon className="mr-3 text-stone-700" size={28} />
           Tag Management
         </h2>
-        <button className="bg-coffee text-white px-6 py-3 rounded-2xl font-bold flex items-center shadow-lg active:scale-95 transition-all opacity-50 cursor-not-allowed">
+        <button className="bg-stone-700 text-white px-6 py-3 rounded-2xl font-bold flex items-center shadow-lg active:scale-95 transition-all opacity-50 cursor-not-allowed">
           <Plus size={20} className="mr-2" />
           Add Category
         </button>
@@ -74,7 +75,7 @@ export function TagsManager() {
             <div className="flex justify-between items-start mb-8">
               <div>
                 <div className="flex items-center space-x-3 mb-2">
-                  <span className="text-xs font-black uppercase tracking-widest text-coffee/60">Category</span>
+                  <span className="text-xs font-black uppercase tracking-widest text-stone-700/60">Category</span>
                   <span className="bg-stone-100 dark:bg-stone-800 text-stone-500 px-2 py-0.5 rounded text-[10px] font-bold">Order: {category.display_order}</span>
                 </div>
                 <div className="flex items-center space-x-3 mb-1">
@@ -91,7 +92,7 @@ export function TagsManager() {
                 </div>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 text-stone-400 hover:text-coffee transition-colors opacity-50"><Edit3 size={20} /></button>
+                <button className="p-2 text-stone-400 hover:text-stone-700 transition-colors opacity-50"><Edit3 size={20} /></button>
                 <button className="p-2 text-stone-400 hover:text-red-500 transition-colors opacity-50"><Trash2 size={20} /></button>
               </div>
             </div>
@@ -99,7 +100,7 @@ export function TagsManager() {
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-stone-100 dark:border-stone-800 pb-2">
                 <h4 className="text-xs font-black uppercase tracking-widest text-stone-400">Tags in this category</h4>
-                <button className="text-coffee text-xs font-bold flex items-center hover:underline opacity-50">
+                <button className="text-stone-700 text-xs font-bold flex items-center hover:underline opacity-50">
                   <Plus size={14} className="mr-1" /> Add Tag
                 </button>
               </div>
@@ -114,7 +115,7 @@ export function TagsManager() {
                            tag.is_active ? "bg-green-500" : "bg-red-500"
                          )} />
                          <span className="text-[10px] font-bold text-stone-500 uppercase">{tag.display_order}</span>
-                         <button className="p-1 text-stone-400 hover:text-coffee opacity-50"><Edit3 size={14} /></button>
+                         <button className="p-1 text-stone-400 hover:text-stone-700 opacity-50"><Edit3 size={14} /></button>
                       </div>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
