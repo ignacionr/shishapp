@@ -41,9 +41,8 @@ jobs:
             
             echo "Building Web..."
             cd /opt/myshisha/web
-            # Build directly to allow network access for npm
-            npm install
-            npm run build
+            # Use nix shell to provide nodejs and npm
+            nix shell nixpkgs#nodejs_22 --extra-experimental-features "nix-command flakes" --command bash -c "npm install && npm run build"
             
             echo "Updating web content in backend/www..."
             # Ensure www exists
